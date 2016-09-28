@@ -50,6 +50,7 @@ return array(
 			'urlFormat'=>'path',
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
+				'travel/detail/<title_slug>'=>'travel/detail',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
@@ -74,9 +75,9 @@ return array(
 				),
 				// uncomment the following to show log messages on web pages
 				
-				array(
-					'class'=>'CWebLogRoute',
-				),
+				// array(
+				// 	'class'=>'CWebLogRoute',
+				// ),
 				
 			),
 		),

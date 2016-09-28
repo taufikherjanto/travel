@@ -6,7 +6,7 @@ class TravelController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts_jalanhalal/column2';
 
 	/**
 	 * @return array action filters
@@ -28,7 +28,7 @@ class TravelController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'detail'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -58,6 +58,16 @@ class TravelController extends Controller
 		));
 	}
 
+	public function actionDetail($title_slug)
+	{
+		$model=$this->loadModelBySlug($title_slug);
+		$gallery=new TravelGallery;
+		$this->render('detail',array(
+			'model'=>$model,
+			'gallery'=>$gallery->findAllByAttributes(array('id_travel'=>$model->id))
+		));
+	}
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -72,6 +82,7 @@ class TravelController extends Controller
 		if(isset($_POST['Travel']))
 		{
 			$model->attributes=$_POST['Travel'];
+
 
 			// get image uploaded
 			$uploadedFile=CUploadedFile::getInstance($model, 'gambar');
@@ -202,6 +213,14 @@ class TravelController extends Controller
 	public function loadModel($id)
 	{
 		$model=Travel::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+
+	public function loadModelBySlug($title_slug)
+	{
+		$model=Travel::model()->find('title_slug=:title_slug', array(':title_slug'=>$title_slug));
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

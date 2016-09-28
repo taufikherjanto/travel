@@ -5,9 +5,13 @@
  *
  * The followings are the available columns in table 'travel':
  * @property integer $id
- * @property string $nama_travel
- * @property integer $kategori_travel
+ * @property integer $id_kategori
  * @property integer $id_travel_organizer
+ * @property string $judul
+ * @property string $title_slug
+ * @property integer $region
+ * @property integer $negara
+ * @property string $tema
  * @property string $deskripsi
  * @property string $tanggal_event
  * @property integer $harga
@@ -21,7 +25,6 @@ class Travel extends CActiveRecord
 {
 	public $kategori_search;
 	public $organizer_search;
-	public $ustad_search;
 
 	/**
 	 * @return string the associated database table name
@@ -39,14 +42,14 @@ class Travel extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nama_travel, kategori_travel, id_travel_organizer, deskripsi, tanggal_event, harga, quota, tanggal_post, status_publish, viewer', 'required'),
+			array('id_kategori, id_travel_organizer, judul, title_slug, region, negara, tema, deskripsi, tanggal_event, harga, quota, tanggal_post, status_publish, viewer', 'required'),
 			array('gambar', 'required', 'on'=>'create'),
-			array('kategori_travel, id_travel_organizer, id_ustad, harga, quota, status_publish, viewer', 'numerical', 'integerOnly'=>true),
-			array('nama_travel', 'length', 'max'=>100),
-			array('gambar', 'length', 'max'=>255),
+			array('id_kategori, id_travel_organizer, region, negara, harga, quota, status_publish, viewer', 'numerical', 'integerOnly'=>true),
+			array('judul', 'length', 'max'=>100),
+			array('title_slug, tema, gambar', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nama_travel, kategori_search, organizer_search, ustad_search, deskripsi, tanggal_event, harga, quota, gambar, tanggal_post, status_publish, viewer', 'safe', 'on'=>'search'),
+			array('id, id_kategori, id_travel_organizer, judul, kategori_search, organizer_search, judul, title_slug, region, negara, tema, deskripsi, tanggal_event, harga, quota, gambar, tanggal_post, status_publish, viewer', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,23 +61,27 @@ class Travel extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'kategori' => array(self::BELONGS_TO, 'TravelKategori', 'kategori_travel'),
+			'kategori' => array(self::BELONGS_TO, 'TravelKategori', 'id_kategori'),
 			'organizer' => array(self::BELONGS_TO, 'TravelOrganizer', 'id_travel_organizer'),
-			'ustad' => array(self::BELONGS_TO, 'Ustad', 'id_ustad'),
+			'region_ref' => array(self::BELONGS_TO, 'Region', 'region'),
+			'negara_ref' => array(self::BELONGS_TO, 'Negara', 'negara'),
 		);
 	}
 
-	/**
+	/**x
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
 	{
 		return array(
 			'id' => 'ID',
-			'nama_travel' => 'Nama Travel',
-			'kategori_travel' => 'Travel Kategori',
+			'id_kategori' => 'Travel Kategori',
 			'id_travel_organizer' => 'Travel Organizer',
-			'id_ustad'=>'Ustad',
+			'judul' => 'Judul',
+			'title_slug' => 'Title Slug',
+			'region' => 'Region',
+			'negara' => 'Negara',
+			'tema' => 'Tema',
 			'deskripsi' => 'Deskripsi',
 			'tanggal_event' => 'Tanggal Event',
 			'harga' => 'Harga',
@@ -104,15 +111,17 @@ class Travel extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->with = array('organizer', 'kategori', 'ustad');
+		$criteria->with = array('organizer', 'kategori');
 		$criteria->compare('kategori.jenis_travel', $this->kategori_search, true);
 		$criteria->compare('organizer.nama_travel_organizer', $this->organizer_search, true);
-		$criteria->compare('ustad.nama_ustad', $this->ustad_search, true);
 		$criteria->compare('id',$this->id);
-		$criteria->compare('nama_travel',$this->nama_travel,true);
-		$criteria->compare('kategori_travel',$this->kategori_travel);
+		$criteria->compare('id_kategori',$this->id_kategori);
 		$criteria->compare('id_travel_organizer',$this->id_travel_organizer);
-		$criteria->compare('id_ustad', $this->id_ustad);
+		$criteria->compare('judul',$this->judul,true);
+		$criteria->compare('title_slug',$this->title_slug,true);
+		$criteria->compare('region',$this->region);
+		$criteria->compare('negara',$this->negara);
+		$criteria->compare('tema',$this->tema,true);
 		$criteria->compare('deskripsi',$this->deskripsi,true);
 		$criteria->compare('tanggal_event',$this->tanggal_event,true);
 		$criteria->compare('harga',$this->harga);
@@ -127,18 +136,14 @@ class Travel extends CActiveRecord
 			'sort'=>array(
 				'attributes'=>array(
 					'kategori_search'=>array(
-	                'asc'=>'kategori.jenis_travel',
-	                'desc'=>'kategori.jenis_travel DESC',
-	            ),
-	            'organizer_search'=>array(
-	                'asc'=>'organizer.nama_travel_organizer',
-	                'desc'=>'organizer.nama_travel_organizer DESC',
-	            ),
-	            'ustad_search'=>array(
-	                'asc'=>'ustad.nama_ustad',
-	                'desc'=>'ustad.nama_ustad DESC',
-	            ),
-				'*'
+		                'asc'=>'kategori.jenis_travel',
+		                'desc'=>'kategori.jenis_travel DESC',
+	            	),
+		            'organizer_search'=>array(
+		                'asc'=>'organizer.nama_travel_organizer',
+		                'desc'=>'organizer.nama_travel_organizer DESC',
+		            ),
+					'*'
 				),
 			),
 			'pagination'=>array(

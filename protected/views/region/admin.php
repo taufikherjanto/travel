@@ -1,15 +1,15 @@
 <?php
-/* @var $this TravelController */
-/* @var $model Travel */
+/* @var $this RegionController */
+/* @var $model Region */
 
 $this->breadcrumbs=array(
-	'Travels'=>array('index'),
+	'Regions'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Travel', 'url'=>array('index')),
-	array('label'=>'Create Travel', 'url'=>array('create')),
+	array('label'=>'List Region', 'url'=>array('index')),
+	array('label'=>'Create Region', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#travel-grid').yiiGridView('update', {
+	$('#region-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Travels</h1>
+<h1>Manage Regions</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,33 +41,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'travel-grid',
+	'id'=>'region-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'nullDisplay'=>'',
 	'columns'=>array(
 		'id',
-		array(
-			'name'=>'kategori_search',
-			'value'=>'$data->kategori->jenis_travel'
-		),
-		array(
-			'name'=>'organizer_search',
-			'value'=>'$data->organizer->nama_travel_organizer'
-		),
-		//'title_slug',
-		'region',
-		'negara',
-		'tema',
-		'deskripsi',
-		'tanggal_event',
-		// 'harga',
-		'quota',
-		// 'gambar',
-		// 'tanggal_post',
-		'status_publish',
-		'viewer',
-		
+		'nama_region',
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -17,14 +17,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'nama_travel'); ?>
-		<?php echo $form->textField($model,'nama_travel',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'kategori_travel'); ?>
+		<?php echo $form->label($model,'id_kategori'); ?>
 		<?php echo $form->dropdownList(
-			$model, 'kategori_travel',
+			$model, 'id_kategori',
 			CHtml::listData(TravelKategori::model()->findAll(), 'id', 'jenis_travel'),
 			array('empty'=>'Pilih Kategori')
 		); ?>
@@ -40,12 +35,23 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_ustad'); ?>
-		<?php echo $form->dropdownList(
-			$model, 'id_ustad',
-			CHtml::listData(Ustad::model()->findAll(), 'id', 'nama_ustad'),
-			array('empty'=>'Pilih Ustad')
-		); ?>
+		<?php echo $form->label($model,'judul'); ?>
+		<?php echo $form->textField($model,'judul',array('size'=>60,'maxlength'=>100)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'region'); ?>
+		<?php echo $form->textField($model,'region',array('size'=>60,'maxlength'=>100)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'negara'); ?>
+		<?php echo $form->textField($model,'negara',array('size'=>60,'maxlength'=>100)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'tema'); ?>
+		<?php echo $form->textField($model,'tema',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row">

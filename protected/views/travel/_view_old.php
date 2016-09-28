@@ -1,17 +1,17 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('judul')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->judul), array('detail', 'title_slug'=>$data->title_slug)); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('nama_travel')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->nama_travel), array('detail', 'title_slug'=>$data->title_slug)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('judul')); ?>:</b>
-	<?php echo CHtml::encode($data->judul); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('nama_travel')); ?>:</b>
+	<?php echo CHtml::encode($data->nama_travel); ?>
 	<br />
 
 	<?php echo CHtml::image(Yii::app()->baseUrl."/images/travel/".$data->gambar,'alt',array("width"=>"150px")); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_kategori')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('kategori_travel')); ?>:</b>
 	<?php echo CHtml::encode($data->kategori->jenis_travel); ?>
 	<br />
 
@@ -19,17 +19,11 @@
 	<?php echo CHtml::encode($data->organizer->nama_travel_organizer); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('region')); ?>:</b>
-	<?php echo CHtml::encode($data->region); ?>
+	<?php if ($data->ustad) { ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_ustad')); ?>:</b>
+	<?php echo CHtml::encode($data->ustad->nama_ustad); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('negara')); ?>:</b>
-	<?php echo CHtml::encode($data->negara); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('tema')); ?>:</b>
-	<?php echo CHtml::encode($data->tema); ?>
-	<br />
+	<?php } ?>	
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('deskripsi')); ?>:</b>
 	<?php echo CHtml::encode($data->deskripsi); ?>

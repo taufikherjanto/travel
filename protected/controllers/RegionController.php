@@ -1,12 +1,12 @@
 <?php
 
-class TravelgalleryController extends Controller
+class RegionController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts_jalanhalal/column2';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -62,14 +62,14 @@ class TravelgalleryController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new TravelGallery;
+		$model=new Region;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['TravelGallery']))
+		if(isset($_POST['Region']))
 		{
-			$model->attributes=$_POST['TravelGallery'];
+			$model->attributes=$_POST['Region'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -91,9 +91,9 @@ class TravelgalleryController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['TravelGallery']))
+		if(isset($_POST['Region']))
 		{
-			$model->attributes=$_POST['TravelGallery'];
+			$model->attributes=$_POST['Region'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -122,7 +122,7 @@ class TravelgalleryController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('TravelGallery');
+		$dataProvider=new CActiveDataProvider('Region');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +133,10 @@ class TravelgalleryController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new TravelGallery('search');
+		$model=new Region('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['TravelGallery']))
-			$model->attributes=$_GET['TravelGallery'];
+		if(isset($_GET['Region']))
+			$model->attributes=$_GET['Region'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +147,12 @@ class TravelgalleryController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return TravelGallery the loaded model
+	 * @return Region the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=TravelGallery::model()->findByPk($id);
+		$model=Region::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,11 +160,11 @@ class TravelgalleryController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param TravelGallery $model the model to be validated
+	 * @param Region $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='travel-gallery-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='region-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

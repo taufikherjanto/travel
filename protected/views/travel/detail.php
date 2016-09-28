@@ -24,21 +24,15 @@ $this->menu=array(
 		'id',
 		'judul',
 		array(
-			'name'=>'kategori_travel',
+			'name'=>'id_kategori',
 			'value'=> $model->kategori->jenis_travel,
 		),
 		array(
 			'label'=>'Organizer',
 			'value'=> $model->organizer->nama_travel_organizer,
 		),
-		array(
-			'label'=>'Region',
-			'value'=> $model->region_ref->nama_region,
-		),
-		array(
-			'label'=>'Negara',
-			'value'=> $model->negara_ref->nama_negara,
-		),
+		'region',
+		'negara',
 		'tema',
 		'deskripsi',
 		'tanggal_event',

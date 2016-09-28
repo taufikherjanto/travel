@@ -1,5 +1,5 @@
 <?php
-/* @var $this TravelController */
+/* @var $this ProductController */
 /* @var $model Travel */
 
 $this->breadcrumbs=array(
@@ -44,30 +44,23 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'id'=>'travel-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'nullDisplay'=>'',
 	'columns'=>array(
 		'id',
-		array(
-			'name'=>'kategori_search',
-			'value'=>'$data->kategori->jenis_travel'
-		),
-		array(
-			'name'=>'organizer_search',
-			'value'=>'$data->organizer->nama_travel_organizer'
-		),
-		//'title_slug',
-		'region',
-		'negara',
-		'tema',
+		'nama_travel',
+		'title_slug',
+		'kategori_travel',
+		'id_travel_organizer',
+		'id_ustad',
+		/*
 		'deskripsi',
 		'tanggal_event',
-		// 'harga',
+		'harga',
 		'quota',
-		// 'gambar',
-		// 'tanggal_post',
+		'gambar',
+		'tanggal_post',
 		'status_publish',
 		'viewer',
-		
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -28,7 +28,7 @@ Yii::app()->clientScript->registerScript('search', "
 ");
 ?>
 
-<h1>Travels</h1>
+
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -37,16 +37,24 @@ Yii::app()->clientScript->registerScript('search', "
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php
+$this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-	'id'=>'travellistview',
+	'template'=>'{items}',
+	'id'=>'list-item-umroh',
+	'htmlOptions'=>array(
+		'class'=>'row'
+	),
 	'sortableAttributes'=>array(
 		'id',
-		'nama_travel',
-		'kategori_travel',
+		'id_kategori',
+		'judul',
+		'region',
+		'negara',
+		'tema',
 		'tanggal_event',
-		'harga',
 		'quota',
+		'harga',
 	),
 )); ?>

@@ -1,10 +1,10 @@
 <?php
-/* @var $this TravelController */
+/* @var $this ProductController */
 /* @var $model Travel */
 
 $this->breadcrumbs=array(
 	'Travels'=>array('index'),
-	$model->judul,
+	$model->id,
 );
 
 $this->menu=array(
@@ -22,47 +22,18 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'judul',
-		array(
-			'name'=>'kategori_travel',
-			'value'=> $model->kategori->jenis_travel,
-		),
-		array(
-			'label'=>'Organizer',
-			'value'=> $model->organizer->nama_travel_organizer,
-		),
-		array(
-			'label'=>'Region',
-			'value'=> $model->region_ref->nama_region,
-		),
-		array(
-			'label'=>'Negara',
-			'value'=> $model->negara_ref->nama_negara,
-		),
-		'tema',
+		'nama_travel',
+		'title_slug',
+		'kategori_travel',
+		'id_travel_organizer',
+		'id_ustad',
 		'deskripsi',
 		'tanggal_event',
 		'harga',
 		'quota',
 		'gambar',
-		array(
-			'label'=>'gambar',
-			'type'=>'html',
-			'value'=> CHtml::image(Yii::app()->baseUrl."/images/travel/".$model->gambar,'alt',array("width"=>"150px")),
-		),
 		'tanggal_post',
 		'status_publish',
 		'viewer',
 	),
 )); ?>
-
-<?php
-	if ($gallery) {
-		foreach ($gallery as $item_gallery){
-			echo CHtml::image(Yii::app()->baseUrl."/images/gallery/".$item_gallery->gambar,'alt',array("width"=>"150px"))." ";
-		}
-	}
-	else {
-		echo 'nothing';
-	}
-?>

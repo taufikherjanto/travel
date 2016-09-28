@@ -1,5 +1,5 @@
 <?php
-/* @var $this TravelController */
+/* @var $this ProductController */
 /* @var $model Travel */
 /* @var $form CActiveForm */
 ?>
@@ -13,9 +13,6 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
-	'htmlOptions'=>array(
-		'enctype'=>'multipart/form-data'
-	),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -23,47 +20,33 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_kategori'); ?>
-		<?php echo $form->dropdownList(
-			$model, 'id_kategori',
-			CHtml::listData(TravelKategori::model()->findAll(), 'id', 'jenis_travel'),
-			array('empty'=>'Pilih Kategori')
-		); ?>
-		<?php echo $form->error($model,'id_kategori'); ?>
+		<?php echo $form->labelEx($model,'nama_travel'); ?>
+		<?php echo $form->textField($model,'nama_travel',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'nama_travel'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'title_slug'); ?>
+		<?php echo $form->textField($model,'title_slug',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'title_slug'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'kategori_travel'); ?>
+		<?php echo $form->textField($model,'kategori_travel'); ?>
+		<?php echo $form->error($model,'kategori_travel'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_travel_organizer'); ?>
-		<?php echo $form->dropdownList(
-			$model, 'id_travel_organizer',
-			CHtml::listData(TravelOrganizer::model()->findAll(), 'id', 'nama_travel_organizer'),
-			array('empty'=>'Pilih Organizer')
-		); ?>
+		<?php echo $form->textField($model,'id_travel_organizer'); ?>
 		<?php echo $form->error($model,'id_travel_organizer'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'judul'); ?>
-		<?php echo $form->textField($model,'judul',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'judul'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'region'); ?>
-		<?php echo $form->textField($model,'region',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'region'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'negara'); ?>
-		<?php echo $form->textField($model,'negara',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'negara'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'tema'); ?>
-		<?php echo $form->textField($model,'tema',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'tema'); ?>
+		<?php echo $form->labelEx($model,'id_ustad'); ?>
+		<?php echo $form->textField($model,'id_ustad'); ?>
+		<?php echo $form->error($model,'id_ustad'); ?>
 	</div>
 
 	<div class="row">
@@ -92,18 +75,28 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'gambar'); ?>
-		<?php echo $form->fileField($model,'gambar',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'gambar',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'gambar'); ?>
-
-		<p class="tebal">gambar tambahan :</p>
-		<?php for ($i=0; $i < 5; $i++) { ?>
-			<div class="form-group">
-				<p>Gambar <?php echo $i ?></p>
-				<input type="file" name="file[]">
-			</div>
-		<?php } ?>
 	</div>
-	
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'tanggal_post'); ?>
+		<?php echo $form->textField($model,'tanggal_post'); ?>
+		<?php echo $form->error($model,'tanggal_post'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'status_publish'); ?>
+		<?php echo $form->textField($model,'status_publish'); ?>
+		<?php echo $form->error($model,'status_publish'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'viewer'); ?>
+		<?php echo $form->textField($model,'viewer'); ?>
+		<?php echo $form->error($model,'viewer'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
