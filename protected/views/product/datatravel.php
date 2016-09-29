@@ -3,7 +3,7 @@
 	<div class="wrap">
 		<div class="image-product">
 			<?php echo CHtml::image(Yii::app()->baseUrl."/images/travel/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")); ?><br>
-			<p class="text-right"><?php echo $data->organizer->nama_travel_organizer;?></p>
+			<p class="text-right"><?php echo $data->judul;?></p>
 		</div>
 		<div class="content-product">
 			<div class="row">
@@ -12,7 +12,7 @@
 				</div>
 				<div class="col-md-7 col-sm-7 col-xs-12">
 					<h4><strong>Rp <?php echo $data->harga;?></strong></h4>
-				    <p><small><strong><?php echo $data->deskripsi;?></small></p>
+				    <p><small><strong><?php echo $data->desc;?></small></p>
 				    <a href="detail_produk.html" class="btn-letter">Selengkapnya</a>
 					<p>&nbsp;</p>
 				</div>

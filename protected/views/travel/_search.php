@@ -26,15 +26,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_travel_organizer'); ?>
-		<?php echo $form->dropdownList(
-			$model, 'id_travel_organizer',
-			CHtml::listData(TravelOrganizer::model()->findAll(), 'id', 'nama_travel_organizer'),
-			array('empty'=>'Pilih Organizer')
-		); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'judul'); ?>
 		<?php echo $form->textField($model,'judul',array('size'=>60,'maxlength'=>100)); ?>
 	</div>

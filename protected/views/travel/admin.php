@@ -51,15 +51,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'name'=>'kategori_search',
 			'value'=>'$data->kategori->jenis_travel'
 		),
-		array(
-			'name'=>'organizer_search',
-			'value'=>'$data->organizer->nama_travel_organizer'
-		),
+		
 		//'title_slug',
 		'region',
 		'negara',
 		'tema',
-		'deskripsi',
+		'desc',
 		'tanggal_event',
 		// 'harga',
 		'quota',

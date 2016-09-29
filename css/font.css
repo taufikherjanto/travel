@@ -1,0 +1,59 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+@font-face {
+    font-family: OpenSans Reguler;
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: OpenSans SemiBold;
+    src: url(../fonts/OpenSans-Semibold.ttf);
+}
+
+h1, h2, h3, h4, h5, h6, input, select, textarea, a, label, body {
+    font-family: OpenSans Reguler;
+}
+
+h1 {
+    font-size: 36pt;
+}
+
+h2 {
+    font-size: 28pt;
+}
+
+h3 {
+    font-size: 20pt;
+}
+
+h4 {
+    font-size: 18pt;
+}
+
+h5, p {
+    font-size: 14pt;
+}
+
+a, li a {
+    color: #462263;
+    text-decoration: none;
+}
+
+a:hover, li a:hover {
+    text-decoration: none;
+}
+
+.nav li a{
+    font-family: OpenSans SemiBold;
+}
+
+label {
+    font-size: 8pt;
+}
+
+input, select {
+    font-size: 8pt;
+}

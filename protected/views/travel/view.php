@@ -28,19 +28,15 @@ $this->menu=array(
 			'value'=> $model->kategori->jenis_travel,
 		),
 		array(
-			'label'=>'Organizer',
-			'value'=> $model->organizer->nama_travel_organizer,
-		),
-		array(
 			'label'=>'Region',
-			'value'=> $model->region_ref->nama_region,
+			'value'=> ($model->region) ? $model->region_ref->nama_region : '' ,
 		),
 		array(
 			'label'=>'Negara',
-			'value'=> $model->negara_ref->nama_negara,
+			'value'=> ($model->negara) ? $model->negara_ref->nama_negara : '',
 		),
 		'tema',
-		'deskripsi',
+		'desc',
 		'tanggal_event',
 		'harga',
 		'quota',

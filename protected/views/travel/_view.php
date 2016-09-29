@@ -15,10 +15,6 @@
 	<?php echo CHtml::encode($data->kategori->jenis_travel); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_travel_organizer')); ?>:</b>
-	<?php echo CHtml::encode($data->organizer->nama_travel_organizer); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('region')); ?>:</b>
 	<?php echo CHtml::encode($data->region); ?>
 	<br />
@@ -31,8 +27,8 @@
 	<?php echo CHtml::encode($data->tema); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('deskripsi')); ?>:</b>
-	<?php echo CHtml::encode($data->deskripsi); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('desc')); ?>:</b>
+	<?php echo CHtml::encode($data->desc); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tanggal_event')); ?>:</b>

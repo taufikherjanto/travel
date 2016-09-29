@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'ustad':
  * @property integer $id
  * @property string $nama_ustad
- * @property string $deskripsi_ustad
+ * @property string $desc
  * @property string $foto
  * @property string $email
  */
@@ -28,11 +28,11 @@ class Ustad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nama_ustad, deskripsi_ustad, foto, email', 'required'),
+			array('nama_ustad, desc, foto, email', 'required'),
 			array('nama_ustad, foto, email', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nama_ustad, deskripsi_ustad, foto, email', 'safe', 'on'=>'search'),
+			array('id, nama_ustad, desc, foto, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +55,7 @@ class Ustad extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'nama_ustad' => 'Nama Ustad',
-			'deskripsi_ustad' => 'Deskripsi Ustad',
+			'desc' => 'Deskripsi Ustad',
 			'foto' => 'Foto',
 			'email' => 'Email',
 		);
@@ -81,7 +81,7 @@ class Ustad extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('nama_ustad',$this->nama_ustad,true);
-		$criteria->compare('deskripsi_ustad',$this->deskripsi_ustad,true);
+		$criteria->compare('desc',$this->desc,true);
 		$criteria->compare('foto',$this->foto,true);
 		$criteria->compare('email',$this->email,true);
 

@@ -10,7 +10,7 @@ return array(
 	'name'=>'Travel',
 
 	// preloading 'log' component
-	'preload'=>array('log', 'bootstrap'),
+	'preload'=>array('log'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -51,6 +51,9 @@ return array(
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'travel/detail/<title_slug>'=>'travel/detail',
+				'business/detail/<title_slug>'=>'business/detail',
+				'umroh/detail/<title_slug>'=>'umroh/detail',
+				'dauroh/detail/<title_slug>'=>'dauroh/detail',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
@@ -81,11 +84,6 @@ return array(
 				
 			),
 		),
-
-		'bootstrap'=>array(
-	       'class'=>'ext.booster.components.Booster',
-	       'responsiveCss'=>true,
-	    ),
 
 	),
 

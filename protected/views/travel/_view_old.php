@@ -25,8 +25,8 @@
 	<br />
 	<?php } ?>	
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('deskripsi')); ?>:</b>
-	<?php echo CHtml::encode($data->deskripsi); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('desc')); ?>:</b>
+	<?php echo CHtml::encode($data->desc); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tanggal_event')); ?>:</b>

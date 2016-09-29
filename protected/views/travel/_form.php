@@ -33,16 +33,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_travel_organizer'); ?>
-		<?php echo $form->dropdownList(
-			$model, 'id_travel_organizer',
-			CHtml::listData(TravelOrganizer::model()->findAll(), 'id', 'nama_travel_organizer'),
-			array('empty'=>'Pilih Organizer')
-		); ?>
-		<?php echo $form->error($model,'id_travel_organizer'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'judul'); ?>
 		<?php echo $form->textField($model,'judul',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'judul'); ?>
@@ -67,9 +57,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'deskripsi'); ?>
-		<?php echo $form->textArea($model,'deskripsi',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'deskripsi'); ?>
+		<?php echo $form->labelEx($model,'desc'); ?>
+		<?php echo $form->textArea($model,'desc',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'desc'); ?>
 	</div>
 
 	<div class="row">
