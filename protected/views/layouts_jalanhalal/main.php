@@ -210,7 +210,6 @@
   	</footer>
 
   	<!-- End Footer -->
-  	<script src="<?php echo Yii::app()->request->baseUrl;?>/js/jquery-1.11.0.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl;?>/js/bootstrap.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl;?>/plugins/datepicker/bootstrap-datepicker.js"></script>
     <script>

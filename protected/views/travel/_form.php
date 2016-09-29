@@ -39,15 +39,22 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'region'); ?>
-		<?php echo $form->textField($model,'region',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'region'); ?>
+		<?php echo $form->labelEx($model,'id_region'); ?>
+		<?php echo $form->dropdownList(
+			$model, 'id_region',
+			CHtml::listData(Region::model()->findAll(), 'id', 'nama_region'),
+			array('empty'=>'Pilih Region')
+		); ?>
+		<?php echo $form->error($model,'id_region'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'negara'); ?>
-		<?php echo $form->textField($model,'negara',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'negara'); ?>
+		<?php echo $form->labelEx($model,'id_negara'); ?><?php echo $form->dropdownList(
+			$model, 'id_negara',
+			CHtml::listData(Negara::model()->findAll(), 'id', 'nama_negara'),
+			array('empty'=>'Pilih Negara')
+		); ?>
+		<?php echo $form->error($model,'id_negara'); ?>
 	</div>
 
 	<div class="row">

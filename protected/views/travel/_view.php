@@ -15,12 +15,12 @@
 	<?php echo CHtml::encode($data->kategori->jenis_travel); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('region')); ?>:</b>
-	<?php echo CHtml::encode($data->region); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_region')); ?>:</b>
+	<?php echo CHtml::encode($data->id_region); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('negara')); ?>:</b>
-	<?php echo CHtml::encode($data->negara); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_negara')); ?>:</b>
+	<?php echo CHtml::encode($data->id_negara); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tema')); ?>:</b>

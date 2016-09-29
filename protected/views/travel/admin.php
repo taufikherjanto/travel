@@ -49,12 +49,36 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		array(
 			'name'=>'kategori_search',
-			'value'=>'$data->kategori->jenis_travel'
+			'value'=>'$data->kategori->jenis_travel',
+			'filter'=>CHtml::DropdownList(
+				'Travel[id_kategori]',
+				$model->id_kategori,
+				CHtml::listData(TravelKategori::model()->findAll(), 'id', 'jenis_travel'),
+				array('empty'=>'Pilih Kategori')
+			)
 		),
-		
+		'judul',
 		//'title_slug',
-		'region',
-		'negara',
+		array(
+			'name'=>'region_search',
+			'value'=>'$data->region->nama_region',
+			'filter'=>CHtml::DropdownList(
+				'Travel[id_region]',
+				$model->id_region,
+				CHtml::listData(Region::model()->findAll(), 'id', 'nama_region'),
+				array('empty'=>'Pilih Region')
+			)
+		),
+		array(
+			'name'=>'negara_search',
+			'value'=>'$data->negara->nama_negara',
+			'filter'=>CHtml::DropdownList(
+				'Travel[id_negara]',
+				$model->id_negara,
+				CHtml::listData(Region::model()->findAll(), 'id', 'nama_negara'),
+				array('empty'=>'Pilih Negara')
+			)
+		),
 		'tema',
 		'desc',
 		'tanggal_event',

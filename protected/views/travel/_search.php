@@ -31,13 +31,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'region'); ?>
-		<?php echo $form->textField($model,'region',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->label($model,'id_region'); ?>
+		<?php echo $form->textField($model,'id_region',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'negara'); ?>
-		<?php echo $form->textField($model,'negara',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->label($model,'id_negara'); ?>
+		<?php echo $form->textField($model,'id_negara',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row">

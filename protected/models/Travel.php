@@ -8,8 +8,8 @@
  * @property integer $id_kategori
  * @property string $judul
  * @property string $title_slug
- * @property integer $region
- * @property integer $negara
+ * @property integer $id_region
+ * @property integer $id_negara
  * @property string $tema
  * @property string $desc
  * @property string $tanggal_event
@@ -42,14 +42,14 @@ class Travel extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_kategori,  judul, title_slug, region, negara, tema, desc, tanggal_event, harga, quota, tanggal_post, status_publish, viewer', 'required'),
+			array('id_kategori,  judul, title_slug, id_region, id_negara, tema, desc, tanggal_event, harga, quota, tanggal_post, status_publish, viewer', 'required'),
 			array('gambar', 'required', 'on'=>'create'),
-			array('id_kategori,  region, negara, harga, quota, status_publish, viewer', 'numerical', 'integerOnly'=>true),
+			array('id_kategori,  id_region, id_negara, harga, quota, status_publish, viewer', 'numerical', 'integerOnly'=>true),
 			array('judul', 'length', 'max'=>100),
 			array('title_slug, tema, gambar', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, id_kategori,  judul, title_slug, region, negara, tema, desc, tanggal_event, harga, quota, gambar, tanggal_post, status_publish, viewer', 'safe', 'on'=>'search'),
+			array('id, id_kategori,  judul, title_slug, id_region, id_negara, tema, desc, tanggal_event, harga, quota, gambar, tanggal_post, status_publish, viewer', 'safe', 'on'=>'search'),
 			array('kategori_search, region_search, negara_search', 'safe', 'on'=>'search'),
 		);
 	}
@@ -63,8 +63,8 @@ class Travel extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'kategori' => array(self::BELONGS_TO, 'TravelKategori', 'id_kategori'),
-			'region_ref' => array(self::BELONGS_TO, 'Region', 'region'),
-			'negara_ref' => array(self::BELONGS_TO, 'Negara', 'negara'),
+			'region' => array(self::BELONGS_TO, 'Region', 'id_region'),
+			'negara' => array(self::BELONGS_TO, 'Negara', 'id_negara'),
 		);
 	}
 
@@ -78,8 +78,8 @@ class Travel extends CActiveRecord
 			'id_kategori' => 'Travel Kategori',
 			'judul' => 'Judul',
 			'title_slug' => 'Title Slug',
-			'region' => 'Region',
-			'negara' => 'Negara',
+			'id_region' => 'Region',
+			'id_negara' => 'Negara',
 			'tema' => 'Tema',
 			'desc' => 'Deskripsi',
 			'tanggal_event' => 'Tanggal Event',
@@ -110,16 +110,16 @@ class Travel extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->with = array('kategori', 'region_ref', 'negara_ref');
+		$criteria->with = array('kategori', 'region', 'negara');
 		$criteria->compare('kategori.jenis_travel', $this->kategori_search, true);
-		$criteria->compare('region_ref', $this->region_search, true);
-		$criteria->compare('negara_ref', $this->negara_search, true);
+		$criteria->compare('region.nama_region', $this->region_search, true);
+		$criteria->compare('negara.nama_negara', $this->negara_search, true);
 		$criteria->compare('id',$this->id);
 		$criteria->compare('id_kategori',$this->id_kategori);
 		$criteria->compare('judul',$this->judul,true);
 		$criteria->compare('title_slug',$this->title_slug,true);
-		$criteria->compare('region',$this->region);
-		$criteria->compare('negara',$this->negara);
+		$criteria->compare('id_region',$this->id_region);
+		$criteria->compare('id_negara',$this->id_negara);
 		$criteria->compare('tema',$this->tema,true);
 		$criteria->compare('desc',$this->desc,true);
 		$criteria->compare('tanggal_event',$this->tanggal_event,true);
@@ -139,12 +139,12 @@ class Travel extends CActiveRecord
 		                'desc'=>'kategori.jenis_travel DESC',
 	            	),
 	            	'region_search'=>array(
-		                'asc'=>'region_ref.nama_region',
-		                'desc'=>'region_ref.nama_region DESC',
+		                'asc'=>'region.nama_region',
+		                'desc'=>'region.nama_region DESC',
 	            	),
 	            	'negara_search'=>array(
-		                'asc'=>'negara_ref.nama_negara',
-		                'desc'=>'negara_ref.nama_negaral DESC',
+		                'asc'=>'negara.nama_negara',
+		                'desc'=>'negara.nama_negara DESC',
 	            	),
 					'*'
 				),

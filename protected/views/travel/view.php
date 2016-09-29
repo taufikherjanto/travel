@@ -29,11 +29,11 @@ $this->menu=array(
 		),
 		array(
 			'label'=>'Region',
-			'value'=> ($model->region) ? $model->region_ref->nama_region : '' ,
+			'value'=> ($model->id_region) ? $model->region->nama_region : '' ,
 		),
 		array(
 			'label'=>'Negara',
-			'value'=> ($model->negara) ? $model->negara_ref->nama_negara : '',
+			'value'=> ($model->id_negara) ? $model->negara->nama_negara : '',
 		),
 		'tema',
 		'desc',
