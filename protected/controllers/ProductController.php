@@ -180,6 +180,23 @@ class ProductController extends Controller
 		), false, true);
 	}
 
+	public function actionDataumroh()
+	{
+		$this->layout=false;
+		$criteria = new CDbCriteria(array(
+			'order'=>'id'
+		));
+		$count = Umroh::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+		$model = Umroh::model()->findAll($criteria);
+		$this->renderPartial('dataumroh', array(
+			'model'=>$model,
+			'pages'=>$pages
+		), false, true);
+	}
+
 	/**
 	 * Manages all models.
 	 */

@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Business #<?php echo $model->id; ?></h1>
+<h1>Detail Business #<?php echo $model->judul; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
     'data'=>$model,
@@ -41,7 +41,6 @@ $this->menu=array(
         'harga',
         'quota',
         'quota_active',
-        'gambar',
         array(
 			'label'=>'gambar',
 			'type'=>'html',

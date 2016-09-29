@@ -19,12 +19,12 @@
     <?php echo CHtml::encode($data->pendamping->nama_pendamping); ?>
     <br />
 
-    <b><?php echo CHtml::encode($data->getAttributeLabel('jumlah_hari')); ?>:</b>
-    <?php echo CHtml::encode($data->jumlah_hari); ?>
-    <br />
-
     <b><?php echo CHtml::encode($data->getAttributeLabel('id_penerbangan')); ?>:</b>
     <?php echo CHtml::encode($data->id_penerbangan); ?>
+    <br />
+
+    <b><?php echo CHtml::encode($data->getAttributeLabel('jumlah_hari')); ?>:</b>
+    <?php echo CHtml::encode($data->jumlah_hari); ?>
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('tanggal')); ?>:</b>

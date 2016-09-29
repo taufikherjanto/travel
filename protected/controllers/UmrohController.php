@@ -1,228 +1,248 @@
-<?php 
+<?php
 
-class UmrohController extends MyController
+class UmrohController extends Controller
 {
+	/**
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+	 * using two-column layout. See 'protected/views/layouts/column2.php'.
+	 */
+	public $layout='//layouts_jalanhalal/column2';
 
-
-	//********************************************
+	/**
+	 * @return array action filters
+	 */
 	public function filters()
 	{
 		return array(
-			'accessControl', 
-			'postOnly + delete', 
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
 	public function accessRules()
-	{	
-		$level = User::model()->findAllByAttributes(array('role'=>2));
-		
-		foreach ($level as $key => $value) {
-			$user_name[] = $value->username;
-		}
-
-
-		//DISNI ACTION RULESNYA
+	{
 		return array(
-			array('allow', 
-				'actions'=>array('create','list_umroh','umroh_update','delete','detail','index','umroh_status_nonaktif','umroh_aktif'),
-				'users'=>$user_name,
-			),
-			array('allow', // allow user to perform 'register' actions
-				'actions'=>array('create','list_umroh','umroh_update','delete','detail','index','umroh_status_nonaktif','umroh_aktif'),
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view','detail'),
 				'users'=>array('*'),
 			),
-			array('deny',
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>array('admin'),
+			),
+			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
-
-
 	}
 
-
-
-
-	//*********************************************
-	public function actionIndex()
-	{	
-		$criteria = new CDbCriteria(array('order'=>'tanggal desc'));
-        
-		$jumlah = Artikel::model()->count($criteria,array('order'=>'id asc')); 
-
-		$halaman = new CPagination($jumlah); 
-
-		$halaman->pageSize=3; 
-
-		$halaman->applyLimit($criteria);
-
-
-		$row = Artikel::model()->findAll($criteria,array('order'=>'id asc'));
-		$this->render('index',array('row'=>$row,'halaman'=>$halaman));
-
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 */
+	public function actionView($id)
+	{
+		$gallery = new UmrohGallery;
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+			'gallery'=>$gallery->findAllByAttributes(array('gambar_id'=>$id))
+		));
 	}
 
 	public function actionDetail($title_slug)
 	{
-		$results = Umroh::model()->findAllByAttributes(array("title_slug"=>$title_slug));
-		
-
-
-		/*----------Untuk nambah rate----------------*/ 
-		/* ------------------------------------------*/ 
-		foreach ($results as $key => $value) {
-			
-			$v_id = $value["id"];
-			$qty = 1;
-			Yii::app()->db->createCommand()
-		    ->update("umroh", 
-		        array(
-		            "viewer"=>new CDbExpression("viewer + $qty"),
-		        ),
-		        "id=:id",
-		        array(":id"=>$v_id)
-		    );
-		}
-		/* ---------------------------------------- */
-		/* -----------------------------------------*/
-
-		$this->render('detail', array('results'=>$results));
+		$model=$this->loadModelBySlug($title_slug);
+		$gallery=new UmrohGallery;
+		$this->render('detail',array(
+			'model'=>$model,
+			'gallery'=>$gallery->findAllByAttributes(array('gambar_id'=>$model->id))
+		));
 	}
 
- public function actionList_umroh()
-{
-$criteria = new CDbCriteria();
-
-$jumlah = Umroh::model()->count($criteria); 
-
-$halaman = new CPagination($jumlah); 
-
-$halaman->pageSize=20; 
-
-$halaman->applyLimit($criteria);
-
-$count = Umroh::model()->findAll();
-
-	  $row = Umroh::model()->findAll($criteria,array('order'=>'id asc'));
-	  $this->render("list_umroh", array('halaman'=>$halaman,'ax'=>$row, 'total_lokasi'=>$count));
-}
-	
-
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
 	public function actionCreate()
 	{
 		$model=new Umroh;
+		$model_gallery=array();
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
 		if(isset($_POST['Umroh']))
 		{
 			$model->attributes=$_POST['Umroh'];
 			$model->title_slug=strtolower(str_replace(" ", "-", $_POST['Umroh']['judul']));
-			$uploadedFile=CUploadedFile::getInstance($model,'gambar');
-			//$model->bid = Yii::app()->bidang->id;
-			$model->gambar = $uploadedFile;
+			// get image uploaded
+			$uploadedFile=CUploadedFile::getInstance($model, 'gambar');
+			$model->gambar=$uploadedFile;
 			$model->id_kategori = 1;
 			date_default_timezone_set('Asia/Jakarta');
-			$model->tanggal_post = date("Y-m-d");
-			$model->status_publish = 1;	
+			$model->tanggal_post=date("Y-m-d");
+			$model->status_publish=1;
 			$model->quota_active = $_POST['Umroh']['quota'];
-
+			$model->viewer=0;
 			if($model->save()) {
+				$uploadedFile->saveAs(Yii::app()->basePath.'/../images/umroh/'.$uploadedFile);
 
-			$uploadedFile->saveAs(Yii::app()->basePath.'/../images/umroh/'.$uploadedFile);
-                
-            /*------------MULTI UPLOAD---------------------*/
-			$file_name = $_FILES["file"]["name"];
-			$file_tmp = $_FILES["file"]["tmp_name"];
+				/*
+				 * Multi upload
+				 * File travel gallery
+				 */
+				$file_name=$_FILES['file']['name'];
+				$file_tmp=$_FILES['file']['tmp_name'];
+				$gambar_id = Yii::app()->db->getLastInsertId();
 
-			$image_id = Yii::app()->db->getLastInsertId();
-
-			for ($i=0; $i < count($file_name); $i++) { 
-				if ($file_name[$i] != "") {
-					$sql = "INSERT INTO umroh_gallery(gambar,gambar_id) values (:gambar, :gambar_id)";
-					$parameters = array( ":gambar" => $file_name[$i] , ":gambar_id" => $image_id);
-					Yii::app()->db->createCommand($sql)->execute($parameters);
-
-					move_uploaded_file($file_tmp[$i], "./images/umroh_gallery/".$file_name[$i]);
+				for ($i = 0; $i < count($file_name); $i++) {
+					if ($file_name[$i] != "") {
+						$model_gallery[$i]=new UmrohGallery;
+						$model_gallery[$i]->gambar_id=$gambar_id;
+						$model_gallery[$i]->gambar=$file_name[$i];
+						if ($model_gallery[$i]->save())
+							move_uploaded_file($file_tmp[$i], "./images/umroh_gallery/".$file_name[$i]);
+					}
 				}
-			}
-			/*---------------*/
-                
-                
-				Yii::app()->user->setFlash('berhasil','Data produk telah ditambah');
-				$this->redirect(array('umroh/create'));
+				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
 
-		$this->render('create',array('model'=>$model));
+		$this->render('create',array(
+			'model'=>$model,
+		));
 	}
 
+	/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
+	 */
+	public function actionUpdate($id)
+	{
+		$model=$this->loadModel($id);
 
+		$gambar_lama = $model->gambar;
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
 
-		public function actionDelete($id)
-    {
-        if (Umroh::model()->deleteByPk($id)){
-            Yii::app()->user->setFlash('Berhasil','Data berhasil di hapus');
-            $this->redirect(array('umroh/list_umroh'));
-        }
-        else {
-            Yii::app()->user->setFlash('gagal','Data gagal di hapus. ID#'.$id.'tidak ditemukan');
-            $this->redirect(array('umroh/list_umroh'));
-        }
-       
-    }
+		if(isset($_POST['Umroh']))
+		{
+			$model->attributes=$_POST['Umroh'];
+			$model->title_slug=strtolower(str_replace(" ", "-", $_POST['Umroh']['judul']));
+			$uploadedFile=CUploadedFile::getInstance($model, 'gambar');
+			if ($uploadedFile != null){
+				$model->gambar=$uploadedFile;
+			}
+			else {
+				$model->gambar=$gambar_lama;
+			}
+			if($model->save()) {
 
+				if ($uploadedFile){
+					@unlink(Yii::app()->basePath.'/../images/umroh/'.$gambar_lama);
+					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/umroh/'.$uploadedFile);
+				}
+				$this->redirect(array('view','id'=>$model->id));
+			}
+		}
 
-    public function actionUmroh_update($id)
-    		{
-			    $model = Umroh::model()->findByPk($id);
+		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
 
-					if(isset($_POST['Umroh']))
-					{
+	/**
+	 * Deletes a particular model.
+	 * If deletion is successful, the browser will be redirected to the 'admin' page.
+	 * @param integer $id the ID of the model to be deleted
+	 */
+	public function actionDelete($id)
+	{
+		$this->loadModel($id)->delete();
 
-						$uploadedFile=CUploadedFile::getInstance($model,'gambar');
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
 
-						$model->attributes = $_POST['Umroh'];
-						$model->title_slug=strtolower(str_replace(" ", "-", $_POST['Umroh']['judul']));
-						if($model->save()) {
-							if (isset($uploadedFile)) {
-	                            if($uploadedFile->name != "")  // check if uploaded file is set or not
-    			                {
-    			                    $model->gambar = $uploadedFile->name;
-    			                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/umroh/'.$model->gambar);
-                                    $model->save();
-                                    Yii::app()->user->setFlash('Berhasil','Data berhasil di ubah');
-    			                }
-							}
+	/**
+	 * Lists all models.
+	 */
+	public function actionIndex()
+	{
+		//$dataProvider=new CActiveDataProvider('Umroh');
+		$model=new Umroh('search');
+		$model->unsetAttributes(); //clear default value
+		// $this->render('index',array(
+		// 	'dataProvider'=>$dataProvider,
+		// ));
+		if (isset($_GET['Umroh']))
+			$model->attributes=$_GET['Umroh'];
+		$this->render('index',array(
+			//'dataProvider'=>$dataProvider,
+			'dataProvider'=>$model->search(),
+			'model'=>$model
+		));
+	}
 
-							$this->redirect(array('umroh/list_umroh'));
-						}else{
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+		$model=new Umroh('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Umroh']))
+			$model->attributes=$_GET['Umroh'];
 
-						}
-					}
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
 
-					$this->render('umroh_update',array(
-						'dom'=>$model,
-					));
-           }
+	/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer $id the ID of the model to be loaded
+	 * @return Umroh the loaded model
+	 * @throws CHttpException
+	 */
+	public function loadModel($id)
+	{
+		$model=Umroh::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
 
-            public function actionUmroh_status_nonaktif($id)
-		    {
-		       $model = Umroh::model()->findByPk($id);
-		       $model->status_publish = 0;
-		       $model->save();
-		       $this->redirect(array('umroh/list_umroh'));
-		       
-		    }
+	public function loadModelBySlug($title_slug)
+	{
+		$model=Umroh::model()->find('title_slug=:title_slug', array(':title_slug'=>$title_slug));
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
 
-		    public function actionUmroh_aktif($id)
-		    {
-		       $model = Umroh::model()->findByPk($id);
-		       $model->status_publish = 1;
-		       $model->save();
-		       $this->redirect(array('umroh/list_umroh'));
-		       
-		    }
-	
-
-
+	/**
+	 * Performs the AJAX validation.
+	 * @param Umroh $model the model to be validated
+	 */
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='umroh-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
 }
-
-?>

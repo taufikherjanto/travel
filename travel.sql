@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 29, 2016 at 02:15 
+-- Generation Time: Sep 29, 2016 at 10:20 
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -118,13 +118,13 @@ CREATE TABLE `business` (
   `judul` varchar(255) NOT NULL DEFAULT '',
   `title_slug` varchar(255) NOT NULL DEFAULT '',
   `desc` text NOT NULL,
-  `pendamping` varchar(255) NOT NULL DEFAULT '',
+  `id_pendamping` int(11) NOT NULL,
   `jumlah_hari` varchar(255) NOT NULL DEFAULT '',
-  `penerbangan` int(11) NOT NULL DEFAULT '0',
+  `id_penerbangan` int(11) NOT NULL,
   `tanggal` date NOT NULL DEFAULT '0000-00-00',
   `harga` varchar(255) NOT NULL DEFAULT '',
   `quota` int(11) NOT NULL DEFAULT '0',
-  `quota_active` int(11) NOT NULL DEFAULT '0',
+  `quota_active` int(11) NOT NULL,
   `gambar` varchar(255) NOT NULL DEFAULT '',
   `tanggal_post` varchar(255) NOT NULL DEFAULT '',
   `status_publish` int(11) NOT NULL DEFAULT '0',
@@ -135,9 +135,12 @@ CREATE TABLE `business` (
 -- Dumping data for table `business`
 --
 
-INSERT INTO `business` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `pendamping`, `jumlah_hari`, `penerbangan`, `tanggal`, `harga`, `quota`, `quota_active`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
-(1, 1, 'Perjalanan Bisnis', 'perjalanan-bisnis', 'perjalanan bisnis terbaik', '1', '5', 1, '2016-10-01', '30000', 25, 0, '13-2e3zup1.jpg', '2016-09-30', 1, '2'),
-(2, 1, 'Jalan Bisnis', 'jalan-bisnis', 'jalan-jalan bisnis', '1', '6', 1, '2016-09-30', '30000', 10, 10, 'alex_ross_justice_unused_cover_colored_by_markdominic-d6w8e9y.jpg', '2016-10-01', 1, '1');
+INSERT INTO `business` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `id_pendamping`, `jumlah_hari`, `id_penerbangan`, `tanggal`, `harga`, `quota`, `quota_active`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
+(1, 3, 'Perjalanan Bisnis 1', 'perjalanan-bisnis-1', 'Deskripsi Perjalanan Bisnis 1', 5, '5', 1, '2016-10-01', '30000', 25, 0, 'business.jpg', '2016-09-30', 1, '2'),
+(2, 3, 'Perjalanan Bisnis 2', 'perjalanan-bisnis-2', 'Deskripsi Perjalanan Bisnis 2', 5, '4', 4, '2016-09-30', '3000000', 10, 0, 'business2.jpg', '2016-10-01', 1, '1'),
+(5, 3, 'Perjalanan Bisnis 3', '', 'Deskripsi Perjalanan Bisnis 3', 6, '3', 3, '2016-09-22', '2000000', 4, 0, 'business3.jpg', '2016-09-29', 1, '0'),
+(6, 3, 'Perjalanan Business 4', 'perjalanan-business-4', 'Deskripsi Perjalanan Bisnis 4', 6, '2', 1, '0000-00-00', '2000000', 5, 5, 'business4.jpg', '2016-09-29', 1, '0'),
+(7, 3, 'Perjalanan Bisnis 5', 'perjalanan-bisnis-5', 'Deskripsi Perjalanan Bisnis 5', 6, '2', 4, '2016-10-10', '400000', 6, 6, 'jalan-bisnis.jpg', '2016-09-30', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -156,8 +159,42 @@ CREATE TABLE `business_gallery` (
 --
 
 INSERT INTO `business_gallery` (`id`, `gambar`, `gambar_id`) VALUES
-(1, '911Smallville1128.jpg', 1),
-(2, '13428370_1000363696748754_1583665125076394159_n.jpg', 1);
+(3, 'businessmobil.jpg', 5),
+(6, 'business4b.jpg', 6),
+(7, 'jalan-bisnis-gallery.jpg', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dauroh`
+--
+
+CREATE TABLE `dauroh` (
+  `id` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL DEFAULT '0',
+  `judul` varchar(255) NOT NULL DEFAULT '',
+  `title_slug` varchar(255) NOT NULL DEFAULT '',
+  `desc` text NOT NULL,
+  `lokasi` int(11) NOT NULL DEFAULT '0',
+  `tanggal_berangkat` date NOT NULL DEFAULT '0000-00-00',
+  `id_pendamping` int(11) NOT NULL DEFAULT '0',
+  `harga` varchar(255) NOT NULL DEFAULT '',
+  `quota` int(11) NOT NULL DEFAULT '0',
+  `quota_active` int(11) NOT NULL DEFAULT '0',
+  `gambar` varchar(255) NOT NULL DEFAULT '',
+  `tanggal_post` varchar(255) NOT NULL DEFAULT '',
+  `status_publish` int(11) NOT NULL DEFAULT '0',
+  `viewer` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dauroh`
+--
+
+INSERT INTO `dauroh` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `lokasi`, `tanggal_berangkat`, `id_pendamping`, `harga`, `quota`, `quota_active`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
+(1, 2, 'Daurah A', 'daurah-a', 'Deskripsi Dauroh C', 1, '2016-10-10', 3, '100000', 5, 5, 'dauroh_a.png', '2016-09-30', 1, '0'),
+(2, 2, 'Dauroh B', 'dauroh-b', 'Deskripsi Dauroh B', 2, '2016-10-17', 4, '150000', 10, 10, 'dauroh_b.png', '2016-09-30', 1, '0'),
+(3, 2, 'Dauroh C', 'dauroh-c', 'Deskripsi Dauroh C', 3, '2016-10-20', 3, '200000', 14, 14, 'dauroh_c.jpg', '2016-09-30', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -176,8 +213,9 @@ CREATE TABLE `dauroh_gallery` (
 --
 
 INSERT INTO `dauroh_gallery` (`id`, `gambar`, `gambar_id`) VALUES
-(1, '911Smallville1128.jpg', 1),
-(2, '13428370_1000363696748754_1583665125076394159_n.jpg', 1);
+(3, 'dauroh_a_gallery.png', 1),
+(4, 'dauroh_b_gallery.jpg', 2),
+(5, 'dauroh_c_gallery.png', 3);
 
 -- --------------------------------------------------------
 
@@ -357,7 +395,8 @@ CREATE TABLE `negara` (
 
 INSERT INTO `negara` (`id`, `nama_negara`) VALUES
 (1, 'Indonesia'),
-(2, 'Arab Saudi');
+(2, 'Arab Saudi'),
+(3, 'Jepang');
 
 -- --------------------------------------------------------
 
@@ -536,7 +575,10 @@ CREATE TABLE `region` (
 
 INSERT INTO `region` (`id`, `nama_region`) VALUES
 (1, 'Kalimantan Timur'),
-(2, 'Jawa Timur');
+(2, 'Jawa Timur'),
+(3, 'Bali'),
+(4, 'Yogyakarta'),
+(5, 'Osaka');
 
 -- --------------------------------------------------------
 
@@ -738,8 +780,8 @@ CREATE TABLE `travel` (
   `id_travel_organizer` int(11) NOT NULL,
   `judul` varchar(100) NOT NULL,
   `title_slug` varchar(255) NOT NULL,
-  `region` int(11) NOT NULL,
-  `negara` int(11) NOT NULL,
+  `id_region` int(11) NOT NULL,
+  `id_negara` int(11) NOT NULL,
   `tema` varchar(255) NOT NULL,
   `desc` text NOT NULL,
   `tanggal_event` date NOT NULL,
@@ -755,14 +797,13 @@ CREATE TABLE `travel` (
 -- Dumping data for table `travel`
 --
 
-INSERT INTO `travel` (`id`, `id_kategori`, `id_travel_organizer`, `judul`, `title_slug`, `region`, `negara`, `tema`, `desc`, `tanggal_event`, `harga`, `quota`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
-(1, 1, 2, 'Paket Umroh dan Ziarah ke Palestina', 'paket-umroh-dan-ziarah-ke-palestina', 0, 0, '', 'Umroh', '2015-12-03', 35435453, 21, 'palestina.jpg', '2015-12-23', 1, 1),
-(2, 3, 1, 'Derawan Dream', 'derawan-dream', 1, 1, 'Liburan', 'Liburan impian ke pulau derawan', '2015-10-05', 10000000, 10, 'derawan.jpg', '2015-09-02', 1, 0),
-(5, 1, 1, 'Umroh 8 hari', 'umroh-8-hari', 0, 0, '', 'dfad', '2015-04-09', 5000, 12, 'umroh.jpg', '2016-09-07', 1, 0),
-(6, 2, 2, 'Summer Vacation', 'summer-vacation', 0, 0, '', 'Blabla', '2016-09-20', 60000, 10, 'summervacation.jpg', '2016-09-07', 1, 0),
-(7, 2, 2, 'Trip Gunung Bromo', 'trip-gunung-bromo', 0, 0, '', 'Jalan jalan', '2016-10-12', 400000, 10, 'gunungbromo.jpg', '2016-09-08', 1, 0),
-(8, 3, 3, 'Weekend ke Singapura bro', 'weekend-ke-singapura-bro', 0, 0, '', 'ljaskj', '2016-11-03', 2000000, 20, 'singapura.png', '2016-09-08', 1, 0),
-(9, 3, 3, 'Jalan-jalan ke Thailand dong', 'jalan-jalan-ke-thailand-dong', 0, 0, '', 'ljaskj', '2016-11-03', 2000000, 20, 'thailand.jpg', '2016-09-08', 1, 0);
+INSERT INTO `travel` (`id`, `id_kategori`, `id_travel_organizer`, `judul`, `title_slug`, `id_region`, `id_negara`, `tema`, `desc`, `tanggal_event`, `harga`, `quota`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
+(1, 4, 2, 'Paket Travel Pantai Kuta', 'paket-umroh-dan-ziarah-ke-palestina', 3, 1, 'Tema Travel  A', 'Paket Travel Pantai Kuta sangat direkomendasikan', '2015-12-03', 35435453, 21, 'palestina.jpg', '2015-12-23', 1, 1),
+(5, 4, 1, 'Candi Prambanan', 'umroh-8-hari', 4, 1, 'Tema  Travel C', 'Candi Prambanan menawan', '2015-04-09', 5000, 12, 'candi_prambanan.jpg', '2016-09-07', 1, 0),
+(6, 4, 2, 'Osaka Castle', 'summer-vacation', 5, 3, 'Tema Travel A', 'Jalan-jalan ke tempat bersejarah di kastil Osaka, Jepang', '2016-09-20', 60000, 10, 'osaka-sakura1.jpg', '2016-09-07', 1, 0),
+(7, 4, 2, 'Trip Gunung Bromo', 'trip-gunung-bromo', 2, 1, 'Tema Travel B', 'Jalan jalan ke bromo', '2016-10-12', 400000, 10, 'gunungbromo.jpg', '2016-09-08', 1, 0),
+(8, 4, 3, 'Derawan', 'weekend-ke-singapura-bro', 1, 1, 'Tema Travel B', 'Menikmati panorama laut di Derawan', '2016-11-03', 2000000, 20, 'derawan.jpg', '2016-09-08', 1, 0),
+(9, 4, 3, 'Pura Tanah Lot', 'jalan-jalan-ke-thailand-dong', 3, 1, 'Tema Travel C', 'Pura Tanah Lot adalah salah satu tempat wisata di Bali yang terkenal dengan keindahannya, terutama pada saat matahari terbenam. ', '2016-11-03', 2000000, 20, 'Pura-Tanah-Lot-300x224.jpg', '2016-09-08', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -851,9 +892,9 @@ CREATE TABLE `umroh` (
   `judul` varchar(255) NOT NULL DEFAULT '',
   `title_slug` varchar(255) NOT NULL DEFAULT '',
   `desc` text NOT NULL,
-  `pendamping` varchar(255) NOT NULL DEFAULT '',
+  `id_pendamping` varchar(255) NOT NULL DEFAULT '',
+  `id_penerbangan` int(11) NOT NULL,
   `jumlah_hari` varchar(255) NOT NULL DEFAULT '',
-  `penerbangan` int(11) NOT NULL DEFAULT '0',
   `tanggal` date NOT NULL DEFAULT '0000-00-00',
   `harga` varchar(255) NOT NULL DEFAULT '',
   `quota` int(11) NOT NULL DEFAULT '0',
@@ -868,9 +909,11 @@ CREATE TABLE `umroh` (
 -- Dumping data for table `umroh`
 --
 
-INSERT INTO `umroh` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `pendamping`, `jumlah_hari`, `penerbangan`, `tanggal`, `harga`, `quota`, `quota_active`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
-(1, 1, 'umroh sahabat', 'umroh-sahabat', 'umroh yang baik', '1', '2016-09-30', 1, '2016-10-01', '30000', 25, 0, '13-2e3zup1.jpg', '2016-09-30', 1, '2'),
-(2, 1, 'makmur', 'makmur', 'sdnasdal', '1', '2016-10-01', 1, '2016-09-30', '30000', 10, 10, 'alex_ross_justice_unused_cover_colored_by_markdominic-d6w8e9y.jpg', '2016-10-01', 1, '1');
+INSERT INTO `umroh` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `id_pendamping`, `id_penerbangan`, `jumlah_hari`, `tanggal`, `harga`, `quota`, `quota_active`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
+(1, 1, 'Umroh Satu', 'umroh-satu', 'Deskripsi Umroh Satu', '1', 1, '7', '2016-10-01', '30000', 25, 0, 'umroh1.jpg', '2016-09-30', 1, '4'),
+(2, 1, 'Umroh Kedua', 'umroh-kedua', 'Deskripsi Umroh Kedua', '2', 2, '10', '2016-09-30', '30000', 10, 10, 'umroh2.jpg', '2016-10-01', 1, '1'),
+(3, 1, 'Umroh ketiga', 'umroh-ketiga', 'Deskripsi Umroh Ketiga', '1', 3, '7', '2016-10-21', '50000', 10, 10, 'umroh3.jpg', '2016-09-30', 1, '0'),
+(4, 1, 'Umroh Keempat', 'umroh-keempat', 'Deskripsi Umroh Keempat', '1', 4, '8', '2016-10-27', '55000', 12, 12, 'umroh4.jpg', '2016-09-30', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -889,8 +932,10 @@ CREATE TABLE `umroh_gallery` (
 --
 
 INSERT INTO `umroh_gallery` (`id`, `gambar`, `gambar_id`) VALUES
-(1, '911Smallville1128.jpg', 1),
-(2, '13428370_1000363696748754_1583665125076394159_n.jpg', 1);
+(1, 'umroh1gallery.jpg', 1),
+(3, 'umroh2gallery.jpg', 2),
+(4, 'umroh3gallery.jpg', 3),
+(5, 'umroh4gallery.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -1031,6 +1076,12 @@ ALTER TABLE `business`
 -- Indexes for table `business_gallery`
 --
 ALTER TABLE `business_gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dauroh`
+--
+ALTER TABLE `dauroh`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1249,17 +1300,22 @@ ALTER TABLE `artikel_gallery`
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `business_gallery`
 --
 ALTER TABLE `business_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `dauroh`
+--
+ALTER TABLE `dauroh`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `dauroh_gallery`
 --
 ALTER TABLE `dauroh_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `event_list`
 --
@@ -1299,7 +1355,7 @@ ALTER TABLE `komentar`
 -- AUTO_INCREMENT for table `negara`
 --
 ALTER TABLE `negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
@@ -1329,7 +1385,7 @@ ALTER TABLE `progres`
 -- AUTO_INCREMENT for table `region`
 --
 ALTER TABLE `region`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `rekomendasi`
 --
@@ -1394,12 +1450,12 @@ ALTER TABLE `travel_organizer`
 -- AUTO_INCREMENT for table `umroh`
 --
 ALTER TABLE `umroh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `umroh_gallery`
 --
 ALTER TABLE `umroh_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --

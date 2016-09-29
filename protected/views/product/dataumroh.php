@@ -3,9 +3,9 @@
 	<div class="wrap">
 		<div class="image-product">
 			<?php
-			echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/dauroh/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")), array('/dauroh/detail', 'title_slug'=>$data->title_slug), array('target'=>'_blank'));
+			echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/umroh/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")), array('/umroh/detail', 'title_slug'=>$data->title_slug), array('target'=>'_blank'));
 			?>
-			<?php // echo CHtml::image(Yii::app()->baseUrl."/images/dauroh/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")); ?><br>
+			<?php // echo CHtml::image(Yii::app()->baseUrl."/images/umroh/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")); ?><br>
 			<p class="text-right"><?php echo $data->judul;?></p>
 		</div>
 		<div class="content-product">
@@ -16,7 +16,7 @@
 				<div class="col-md-7 col-sm-7 col-xs-12">
 					<h4><strong>Rp <?php echo $data->harga;?></strong></h4>
 				    <p><small><strong><?php echo $data->desc;?></small></p>
-				    <?php echo CHtml::link('Selengkapnya', array('/dauroh/detail', 'title_slug'=>$data->title_slug), array('class'=>'detail-dauroh btn-letter')); ?>
+				    <?php echo CHtml::link('Selengkapnya', array('/umroh/detail', 'title_slug'=>$data->title_slug), array('class'=>'detail-umroh btn-letter')); ?>
 					<p>&nbsp;</p>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 				    'nextPageLabel' => false,
 				    'lastPageLabel' => false,
 					'htmlOptions'=>array(
-						'id'=>'pager-dauroh',
+						'id'=>'pager-umroh',
 						'class'=>'pagination'
 					),
 				));
@@ -58,10 +58,10 @@
 </div>
 
 <?php
-Yii::app()->clientScript->registerScript("pager-dauroh", <<<JS
+Yii::app()->clientScript->registerScript("pager-umroh", <<<JS
 	$(document).ready(function(){
-		$('#pager-dauroh>li>a').on('click', function(){
-			$('#list-item-dauroh').load($(this).attr('href'));
+		$('#pager-umroh>li>a').on('click', function(){
+			$('#list-item-umroh').load($(this).attr('href'));
 			return false;
 		});
 	});

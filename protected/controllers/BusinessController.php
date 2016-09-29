@@ -94,7 +94,7 @@ class BusinessController extends Controller
 			$model->quota_active = $_POST['Business']['quota'];
 			$model->viewer=0;
 
-			if($model->save())
+			if($model->save()) {
 				$uploadedFile->saveAs(Yii::app()->basePath.'/../images/business/'.$uploadedFile);
 
 				/*
@@ -115,6 +115,7 @@ class BusinessController extends Controller
 					}
 				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -146,13 +147,14 @@ class BusinessController extends Controller
 			else {
 				$model->gambar=$gambar_lama;
 			}
-			if($model->save())
+			if($model->save()) {
 
 				if ($uploadedFile){
 					@unlink(Yii::app()->basePath.'/../images/business/'.$gambar_lama);
 					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/business/'.$uploadedFile);
 				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

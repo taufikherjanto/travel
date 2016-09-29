@@ -92,7 +92,7 @@ class TravelController extends Controller
 			$model->status_publish=1;
 			$model->viewer=0;
 
-			if($model->save())
+			if($model->save()) {
 
 				$uploadedFile->saveAs(Yii::app()->basePath.'/../images/travel/'.$uploadedFile);
 
@@ -114,6 +114,7 @@ class TravelController extends Controller
 					}
 				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -145,13 +146,14 @@ class TravelController extends Controller
 			else {
 				$model->gambar=$gambar_lama;
 			}
-			if($model->save())
+			if($model->save()) {
 				
 				if ($uploadedFile){
 					@unlink(Yii::app()->basePath.'/../images/travel/'.$gambar_lama);
 					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/travel/'.$uploadedFile);
 				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

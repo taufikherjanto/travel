@@ -3,7 +3,7 @@
 	<div class="wrap">
 		<div class="image-product">
 			<?php
-			echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/travel/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")), array('/travel/detail', 'title_slug'=>$data->title_slug));
+			echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/travel/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")), array('/travel/detail', 'title_slug'=>$data->title_slug), array('target'=>'_blank'));
 			?>
 			<?php // echo CHtml::image(Yii::app()->baseUrl."/images/travel/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")); ?><br>
 			<p class="text-right"><?php echo $data->judul;?></p>

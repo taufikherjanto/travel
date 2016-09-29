@@ -109,160 +109,8 @@ $this->menu=array(
 								<p class="text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
 								<p>&nbsp;</p>
 
-								<div class="row">
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<div class="wrap">
-											<div class="image-product">
-												<img src="images/site/umroh/01_img_umroh_1.png" style="width: 200px; height: 200px;"><br>
-												<p class="text-right">KhadijahTravel</p>
-											</div>
-											<div class="content-product">
-												<div class="row">
-													<div class="col-md-5 col-sm-5 col-xs-12" style="height: 200px;">
+								<div class="row" id="list-item-umroh">
 
-													</div>
-													<div class="col-md-7 col-sm-7 col-xs-12">
-														<h4><strong>Rp12.750.000</strong></h4>
-													    <p><small><strong>Paket Bisnis Asia 1</strong><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</small></p>
-													    <a href="detail_produk.html" class="btn-letter">Selengkapnya</a>
-														<p>&nbsp;</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<div class="wrap">
-											<div class="image-product">
-												<img src="images/site/umroh/02_img_umroh_2.png" style="width: 200px; height: 200px;"><br>
-												<p class="text-right">KhadijahTravel</p>
-											</div>
-											<div class="content-product">
-												<div class="row">
-													<div class="col-md-5 col-sm-5 col-xs-12" style="height: 200px;">
-
-													</div>
-													<div class="col-md-7 col-sm-7 col-xs-12">
-														<h4><strong>Rp17.400.000</strong></h4>
-													    <p><small><strong>Paket Bisnis Keluarga</strong><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</small></p>
-													    <a href="detail_produk.html" class="btn-letter">Selengkapnya</a>
-														<p>&nbsp;</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<div class="wrap">
-											<div class="image-product">
-												<img src="images/site/umroh/03_img_umroh_3.png" style="width: 200px; height: 200px;"><br>
-												<p class="text-right">KhadijahTravel</p>
-											</div>
-											<div class="content-product">
-												<div class="row">
-													<div class="col-md-5 col-sm-5 col-xs-12" style="height: 200px;">
-
-													</div>
-													<div class="col-md-7 col-sm-7 col-xs-12">
-														<h4><strong>Rp17.600.000</strong></h4>
-													    <p><small><strong>Paket Bisnis Afrika</strong><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</small></p>
-													    <a href="detail_produk.html" class="btn-letter">Selengkapnya</a>
-														<p>&nbsp;</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-6 col- sm-6 col-xs-12">
-										<div class="wrap">
-											<div class="image-product">
-												<img src="images/site/umroh/04_img_umroh_4.png" style="width: 200px; height: 200px;"><br>
-												<p class="text-right">KhadijahTravel</p>
-											</div>
-											<div class="content-product">
-												<div class="row">
-													<div class="col-md-5 col-sm-5 col-xs-12" style="height: 200px;">
-
-													</div>
-													<div class="col-md-7 col-sm-7 col-xs-12">
-														<h4><strong>Rp23.350.000</strong></h4>
-													    <p><small><strong>Paket Bisnis Gold</strong><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</small></p>
-													    <a href="detail_produk.html" class="btn-letter">Selengkapnya</a>
-														<p>&nbsp;</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<div class="wrap">
-											<div class="image-product">
-												<img src="images/site/umroh/05_img_umroh_5.png" style="width: 200px; height: 200px;"><br>
-												<p class="text-right">KhadijahTravel</p>
-											</div>
-											<div class="content-product">
-												<div class="row">
-													<div class="col-md-5 col-sm-5 col-xs-12" style="height: 200px;">
-
-													</div>
-													<div class="col-md-7 col-sm-7 col-xs-12">
-														<h4><strong>Rp14.150.000</strong></h4>
-													    <p><small><strong>Paket Bisnis Reguler</strong><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</small></p>
-													    <a href="detail_produk.html" class="btn-letter">Selengkapnya</a>
-														<p>&nbsp;</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<div class="col-md-6 col-sm-6 col-xs-12" class="wrap">
-										<div class="wrap">
-											<div class="image-product">
-												<img src="images/site/umroh/06_img_umroh_6.png" style="width: 200px; height: 200px;"><br>
-												<p class="text-right">KhadijahTravel</p>
-											</div>
-											<div class="content-product">
-												<div class="row">
-													<div class="col-md-5 col-sm-5 col-xs-12" style="height: 200px;">
-
-													</div>
-													<div class="col-md-7 col-sm-7 col-xs-12">
-														<h4><strong>Rp17.300.000</strong></h4>
-													    <p><small><strong>Paket Bisnis Eropa 1</strong><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</small></p>
-													    <a href="detail_produk.html" class="btn-letter">Selengkapnya</a>
-														<p>&nbsp;</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-md-3 col-sm-3 col-xs-12">
-
-									</div>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<div style="display: block; margin: 0 auto; text-align: center; ">
-											<nav aria-label="Page navigation">
-											  <ul class="pagination">
-											    <li><a href="#">1</a></li>
-											    <li><a href="#">2</a></li>
-											    <li><a href="#">3</a></li>
-											    <li><a href="#">4</a></li>
-											    <li><a href="#">5</a></li>
-											  </ul>
-											</nav>
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-
-									</div>
 								</div>
 							</div>
 						</div>
@@ -509,6 +357,7 @@ $this->menu=array(
 
 <script>
 $(document).ready(function(){
+	$('#list-item-umroh').load('<?php echo Yii::app()->request->baseUrl;?>/product/dataumroh');
 	$('#list-item-travel').load('<?php echo Yii::app()->request->baseUrl;?>/product/datatravel');
 	$('#list-item-business').load('<?php echo Yii::app()->request->baseUrl;?>/product/databusiness');
 	$('#list-item-dauroh').load('<?php echo Yii::app()->request->baseUrl;?>/product/datadauroh');

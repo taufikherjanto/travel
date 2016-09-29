@@ -93,7 +93,7 @@ class DaurohController extends Controller
 			$model->status_publish=1;
 			$model->quota_active = $_POST['Dauroh']['quota'];
 			$model->viewer=0;
-			if($model->save())
+			if($model->save()) {
 				$uploadedFile->saveAs(Yii::app()->basePath.'/../images/dauroh/'.$uploadedFile);
 
 				/*
@@ -114,6 +114,7 @@ class DaurohController extends Controller
 					}
 				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -145,8 +146,14 @@ class DaurohController extends Controller
 			else {
 				$model->gambar=$gambar_lama;
 			}
-			if($model->save())
+			if($model->save()) {
+				
+				if ($uploadedFile){
+					@unlink(Yii::app()->basePath.'/../images/business/'.$gambar_lama);
+					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/business/'.$uploadedFile);
+				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
