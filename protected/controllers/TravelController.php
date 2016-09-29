@@ -82,11 +82,12 @@ class TravelController extends Controller
 		if(isset($_POST['Travel']))
 		{
 			$model->attributes=$_POST['Travel'];
-
-
+			$model->title_slug=strtolower(str_replace(" ", "-", $_POST['Travel']['judul']));
 			// get image uploaded
 			$uploadedFile=CUploadedFile::getInstance($model, 'gambar');
 			$model->gambar=$uploadedFile;
+			$model->id_kategori = 4;
+			date_default_timezone_set('Asia/Jakarta');
 			$model->tanggal_post=date("Y-m-d");
 			$model->status_publish=1;
 			$model->viewer=0;
@@ -109,7 +110,7 @@ class TravelController extends Controller
 						$model_gallery[$i]->id_travel=$id_travel;
 						$model_gallery[$i]->gambar=$file_name[$i];
 						if ($model_gallery[$i]->save())
-							move_uploaded_file($file_tmp[$i], "./images/gallery/".$file_name[$i]);
+							move_uploaded_file($file_tmp[$i], "./images/travel_gallery/".$file_name[$i]);
 					}
 				}
 				$this->redirect(array('view','id'=>$model->id));
@@ -136,6 +137,7 @@ class TravelController extends Controller
 		if(isset($_POST['Travel']))
 		{
 			$model->attributes=$_POST['Travel'];
+			$model->title_slug=strtolower(str_replace(" ", "-", $_POST['Travel']['judul']));
 			$uploadedFile=CUploadedFile::getInstance($model, 'gambar');
 			if ($uploadedFile != null){
 				$model->gambar=$uploadedFile;

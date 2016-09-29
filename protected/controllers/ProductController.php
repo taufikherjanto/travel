@@ -28,7 +28,7 @@ class ProductController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'datatravel'),
+				'actions'=>array('index','view', 'datatravel', 'databusiness', 'datadauroh', 'dataumroh'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -139,9 +139,43 @@ class ProductController extends Controller
 		$pages = new CPagination($count);
 		$pages->pageSize = 2;
 		$pages->applyLimit($criteria);
-		$data_travel = Travel::model()->findAll($criteria);
+		$model = Travel::model()->findAll($criteria);
 		$this->renderPartial('datatravel', array(
-			'data_travel'=>$data_travel,
+			'model'=>$model,
+			'pages'=>$pages
+		), false, true);
+	}
+
+	public function actionDatabusiness()
+	{
+		$this->layout=false;
+		$criteria = new CDbCriteria(array(
+			'order'=>'id'
+		));
+		$count = Business::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+		$model = Business::model()->findAll($criteria);
+		$this->renderPartial('databusiness', array(
+			'model'=>$model,
+			'pages'=>$pages
+		), false, true);
+	}
+
+	public function actionDatadauroh()
+	{
+		$this->layout=false;
+		$criteria = new CDbCriteria(array(
+			'order'=>'id'
+		));
+		$count = Dauroh::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+		$model = Dauroh::model()->findAll($criteria);
+		$this->renderPartial('datadauroh', array(
+			'model'=>$model,
 			'pages'=>$pages
 		), false, true);
 	}
