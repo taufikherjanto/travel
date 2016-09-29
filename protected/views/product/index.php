@@ -820,7 +820,7 @@ $(document).ready(function(){
 <?php
 Yii::app()->clientScript->registerScript("load-list-item-travel", <<<JS
 	$(document).ready(function(){
-	$('#list-item-travel').load('<?php echo Yii::app()->request->baseUrl;?>/product/datatravel');
-});
+		$('#list-item-travel').load('<?php echo Yii::app()->request->baseUrl;?>/product/datatravel');
+	});
 JS
 );

@@ -54,11 +54,13 @@
 	</div>
 </div>
 
-<script>
+<?php
+Yii::app()->clientScript->registerScript("pager-travel", <<<JS
 	$(document).ready(function(){
 		$('#pager-travel>li>a').on('click', function(){
 			$('#list-item-travel').load($(this).attr('href'));
 			return false;
 		});
 	});
-</script>
+JS
+);
