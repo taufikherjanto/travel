@@ -136,7 +136,13 @@
 
   	<!-- Start Content -->
   	<section class="content">
-		<?php echo $content; ?>
+		<div class="tab-fitur">
+			<div class="container">
+				<div class="row">
+			<?php echo $content; ?>
+				</div>
+			</div>
+		</div>
 	</section>
   	<!-- End Content -->
 

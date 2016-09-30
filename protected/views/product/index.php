@@ -130,6 +130,13 @@ $this->menu=array(
 													<option value=""> -- Pilih --</option>
 													<option value=""> -- Pilih --</option>
 												</select>
+												<?php
+												/*
+												echo CHtml::listData(Region::model()->findAll(),
+                            						'id',
+                            						'nama_region'
+                            					);*/?>
+
 											</div>
 										</div>
 										<div class="col-md-3 col-sm-3 col-xs-12">
@@ -379,3 +386,4 @@ Yii::app()->clientScript->registerScript("load-list-item-business", <<<JS
 	});
 JS
 );
+*/

@@ -25,6 +25,10 @@
 </div>
 <?php
 }
+
+if (!$model) {
+	echo 'tidak ada';
+}
 ?>
 
 <div class="row">

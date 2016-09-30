@@ -5388,3 +5388,1070 @@ Stack trace:
 REQUEST_URI=/travel/image/pointer.png
 HTTP_REFERER=http://localhost/travel/css/style.css
 ---
+2016/09/30 00:29:17 [error] [exception.CException] CException: Travel and its behaviors do not have a method or closure named "getData". in /opt/lampp/htdocs/travel/framework/base/CComponent.php:266
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getData', Array)
+#1 /opt/lampp/htdocs/travel/protected/controllers/ProductController.php(138): CActiveRecord->__call('getData', Array)
+#2 /opt/lampp/htdocs/travel/framework/web/actions/CInlineAction.php(49): ProductController->actionTest()
+#3 /opt/lampp/htdocs/travel/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#10 /opt/lampp/htdocs/travel/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('product/test')
+#13 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/travel/product/test
+---
+2016/09/30 00:37:32 [error] [php] Trying to get property of non-object (/opt/lampp/htdocs/travel/protected/controllers/ProductController.php:140)
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): ProductController->runAction()
+#1 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): ProductController->filterAccessControl()
+#4 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#6 /opt/lampp/htdocs/travel/framework/web/CController.php(265): ProductController->runActionWithFilters()
+#7 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): ProductController->run()
+#8 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#10 /opt/lampp/htdocs/travel/index.php(13): CWebApplication->run()
+REQUEST_URI=/travel/product/test
+in /opt/lampp/htdocs/travel/protected/controllers/ProductController.php (140)
+in /opt/lampp/htdocs/travel/index.php (13)
+2016/09/30 00:42:30 [error] [exception.ParseError] ParseError: syntax error, unexpected '$this' (T_VARIABLE) in /opt/lampp/htdocs/travel/protected/controllers/ProductController.php:168
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(276): CWebApplication->createController('datatravel/')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('product/datatra...')
+#2 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#3 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/travel/product/datatravel
+---
+2016/09/30 00:42:48 [error] [php] Trying to get property of non-object (/opt/lampp/htdocs/travel/protected/views/product/datatravel.php:6)
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(869): ProductController->renderFile()
+#1 /opt/lampp/htdocs/travel/protected/controllers/ProductController.php(171): ProductController->renderPartial()
+#2 /opt/lampp/htdocs/travel/framework/web/actions/CInlineAction.php(49): ProductController->actionDatatravel()
+#3 /opt/lampp/htdocs/travel/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): ProductController->runAction()
+#5 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#7 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): ProductController->filterAccessControl()
+#8 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#9 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#10 /opt/lampp/htdocs/travel/framework/web/CController.php(265): ProductController->runActionWithFilters()
+#11 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): ProductController->run()
+#12 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /opt/lampp/htdocs/travel/index.php(13): CWebApplication->run()
+REQUEST_URI=/travel/product/datatravel
+in /opt/lampp/htdocs/travel/protected/views/product/datatravel.php (6)
+in /opt/lampp/htdocs/travel/protected/controllers/ProductController.php (171)
+in /opt/lampp/htdocs/travel/index.php (13)
+2016/09/30 00:43:32 [error] [exception.CException] CException: Property "Travel.getData" is not defined. in /opt/lampp/htdocs/travel/framework/base/CComponent.php:130
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/db/ar/CActiveRecord.php(145): CComponent->__get('getData')
+#1 /opt/lampp/htdocs/travel/protected/controllers/ProductController.php(172): CActiveRecord->__get('getData')
+#2 /opt/lampp/htdocs/travel/framework/web/actions/CInlineAction.php(49): ProductController->actionDatatravel()
+#3 /opt/lampp/htdocs/travel/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#10 /opt/lampp/htdocs/travel/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('datatravel')
+#12 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('product/datatra...')
+#13 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/travel/product/datatravel
+---
+2016/09/30 00:43:39 [error] [exception.CException] CException: Travel and its behaviors do not have a method or closure named "getData". in /opt/lampp/htdocs/travel/framework/base/CComponent.php:266
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getData', Array)
+#1 /opt/lampp/htdocs/travel/protected/controllers/ProductController.php(172): CActiveRecord->__call('getData', Array)
+#2 /opt/lampp/htdocs/travel/framework/web/actions/CInlineAction.php(49): ProductController->actionDatatravel()
+#3 /opt/lampp/htdocs/travel/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#10 /opt/lampp/htdocs/travel/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('datatravel')
+#12 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('product/datatra...')
+#13 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/travel/product/datatravel
+---
+2016/09/30 00:44:06 [error] [php] Undefined variable: model (/opt/lampp/htdocs/travel/protected/controllers/ProductController.php:166)
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): ProductController->runAction()
+#1 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): ProductController->filterAccessControl()
+#4 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#6 /opt/lampp/htdocs/travel/framework/web/CController.php(265): ProductController->runActionWithFilters()
+#7 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): ProductController->run()
+#8 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#10 /opt/lampp/htdocs/travel/index.php(13): CWebApplication->run()
+REQUEST_URI=/travel/product/datatravel
+in /opt/lampp/htdocs/travel/protected/controllers/ProductController.php (166)
+in /opt/lampp/htdocs/travel/index.php (13)
+2016/09/30 00:44:22 [error] [php] Undefined variable: model (/opt/lampp/htdocs/travel/protected/controllers/ProductController.php:166)
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): ProductController->runAction()
+#1 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): ProductController->filterAccessControl()
+#4 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#6 /opt/lampp/htdocs/travel/framework/web/CController.php(265): ProductController->runActionWithFilters()
+#7 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): ProductController->run()
+#8 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#10 /opt/lampp/htdocs/travel/index.php(13): CWebApplication->run()
+REQUEST_URI=/travel/product/datatravel
+in /opt/lampp/htdocs/travel/protected/controllers/ProductController.php (166)
+in /opt/lampp/htdocs/travel/index.php (13)
+2016/09/30 00:50:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 01:39:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 01:39:19 [error] [php] Array to string conversion (/opt/lampp/htdocs/travel/protected/views/product/index.php:136)
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(869): ProductController->renderFile()
+#1 /opt/lampp/htdocs/travel/framework/web/CController.php(782): ProductController->renderPartial()
+#2 /opt/lampp/htdocs/travel/protected/controllers/ProductController.php(128): ProductController->render()
+#3 /opt/lampp/htdocs/travel/framework/web/actions/CInlineAction.php(49): ProductController->actionIndex()
+#4 /opt/lampp/htdocs/travel/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): ProductController->runAction()
+#6 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): ProductController->filterAccessControl()
+#9 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#11 /opt/lampp/htdocs/travel/framework/web/CController.php(265): ProductController->runActionWithFilters()
+#12 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): ProductController->run()
+#13 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /opt/lampp/htdocs/travel/index.php(13): CWebApplication->run()
+REQUEST_URI=/travel/product
+in /opt/lampp/htdocs/travel/protected/views/product/index.php (136)
+in /opt/lampp/htdocs/travel/protected/controllers/ProductController.php (128)
+in /opt/lampp/htdocs/travel/index.php (13)
+2016/09/30 02:29:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 02:29:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 02:30:18 [error] [php] Array to string conversion (/opt/lampp/htdocs/travel/protected/views/product/index.php:136)
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(869): ProductController->renderFile()
+#1 /opt/lampp/htdocs/travel/framework/web/CController.php(782): ProductController->renderPartial()
+#2 /opt/lampp/htdocs/travel/protected/controllers/ProductController.php(128): ProductController->render()
+#3 /opt/lampp/htdocs/travel/framework/web/actions/CInlineAction.php(49): ProductController->actionIndex()
+#4 /opt/lampp/htdocs/travel/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(133): ProductController->runAction()
+#6 /opt/lampp/htdocs/travel/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /opt/lampp/htdocs/travel/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /opt/lampp/htdocs/travel/framework/web/filters/CInlineFilter.php(58): ProductController->filterAccessControl()
+#9 /opt/lampp/htdocs/travel/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /opt/lampp/htdocs/travel/framework/web/CController.php(291): CFilterChain->run()
+#11 /opt/lampp/htdocs/travel/framework/web/CController.php(265): ProductController->runActionWithFilters()
+#12 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): ProductController->run()
+#13 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /opt/lampp/htdocs/travel/index.php(13): CWebApplication->run()
+REQUEST_URI=/travel/product
+in /opt/lampp/htdocs/travel/protected/views/product/index.php (136)
+in /opt/lampp/htdocs/travel/protected/controllers/ProductController.php (128)
+in /opt/lampp/htdocs/travel/index.php (13)
+2016/09/30 02:31:06 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 02:31:52 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "about". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('about')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('about')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/about
+HTTP_REFERER=http://localhost/travel/product
+---
+2016/09/30 02:32:06 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "about". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('about')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('about')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/about
+HTTP_REFERER=http://localhost/travel/product
+---
+2016/09/30 02:33:16 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "about". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('about')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('about')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/about
+HTTP_REFERER=http://localhost/travel/travel/admin
+---
+2016/09/30 02:35:06 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_img_paket_populer_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_img_paket_populer_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/slide-1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_img_paket_populer_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/05_img_paket_populer_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/06_img_paket_promo_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_ic_MPK_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/07_img_paket_promo_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/08_img_paket_promo_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/09_img_paket_promo_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/01_ic_MPK_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_ic_MPK_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_ic_MPK_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/10_img_telkomsel.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/12_img_jasmine.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/13_img_qatarairways.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:46 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/11_img_garuda.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_img_paket_populer_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_img_paket_populer_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_img_paket_populer_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/05_img_paket_populer_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/07_img_paket_promo_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/06_img_paket_promo_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/slide-1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/08_img_paket_promo_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_ic_MPK_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_ic_MPK_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/01_ic_MPK_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/09_img_paket_promo_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/13_img_qatarairways.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/10_img_telkomsel.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/12_img_jasmine.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/11_img_garuda.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:41:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_ic_MPK_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:42:01 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/slide-1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:42:56 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/slide-1.png
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/slide-1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_img_paket_populer_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_img_paket_populer_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_img_paket_populer_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/05_img_paket_populer_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/09_img_paket_promo_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/07_img_paket_promo_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/06_img_paket_promo_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/08_img_paket_promo_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_ic_MPK_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_ic_MPK_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_ic_MPK_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/01_ic_MPK_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/10_img_telkomsel.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/11_img_garuda.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/13_img_qatarairways.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:12 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/12_img_jasmine.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/slide-1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_img_paket_populer_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_img_paket_populer_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/07_img_paket_promo_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_img_paket_populer_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/05_img_paket_populer_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/08_img_paket_promo_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/01_ic_MPK_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/06_img_paket_promo_1.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/09_img_paket_promo_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/02_ic_MPK_2.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/04_ic_MPK_4.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/03_ic_MPK_3.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/10_img_telkomsel.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/11_img_garuda.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/12_img_jasmine.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:43:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "images". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('images')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/sit...')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/images/site/13_img_qatarairways.png
+HTTP_REFERER=http://localhost/travel/site/
+---
+2016/09/30 02:45:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/09/30 02:49:11 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "about". in /opt/lampp/htdocs/travel/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CController.php(270): CController->missingAction('about')
+#1 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(282): CController->run('about')
+#2 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel/site/about
+HTTP_REFERER=http://localhost/travel/site
+---

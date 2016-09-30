@@ -5,6 +5,7 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
   	<!-- Start Carousel -->
+<section style="margin-bottom:70px"></section>
 <section class="slideshow">
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators hidden-sm hidden-xs">
@@ -529,7 +530,6 @@ $this->pageTitle=Yii::app()->name;
 				</div>
 
 				<div class="col-md-3 col-sm-3">
-					<img src="images/site/02_ic_MPK_2.png" class="img-responsive" style="display: block; margin: 0 auto; margin-bottom: 20px;" alt="...">
 					<h5 class="text-center"><strong>Customer Suport<br>yang Responsif</strong></h5>
 					<p class="text-center"><small>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small></p>
 				</div>

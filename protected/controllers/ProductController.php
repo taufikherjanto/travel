@@ -28,7 +28,7 @@ class ProductController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'datatravel', 'databusiness', 'datadauroh', 'dataumroh'),
+				'actions'=>array('index','view', 'datatravel', 'databusiness', 'datadauroh', 'dataumroh', 'test'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -129,12 +129,49 @@ class ProductController extends Controller
 		));
 	}
 
+	public function actionTest()
+	{
+		// $model =new Travel('search');
+	 //    if(isset($_GET['Travel']))
+	 //        $model->attributes =$_GET['Travel'];
+
+	 //    var_dump($model);
+	 //    foreach($model as $row) {
+	 //    	echo $row->judul;
+	 //    }
+		$this->layout=false;
+		$criteria = new CDbCriteria(array(
+			'order'=>'id'
+		));
+
+		if(isset($_GET['id_kategori']))
+			$criteria->compare('id_kategori', $_GET['id_kategori']);
+		$count = Travel::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+		$model = Travel::model()->findAll($criteria);
+		var_dump($model);
+	}
+
 	public function actionDatatravel()
 	{
 		$this->layout=false;
 		$criteria = new CDbCriteria(array(
 			'order'=>'id'
 		));
+		if(isset($_GET['id_region']))
+			$criteria->compare('id_region', $_GET['id_region']);
+
+		if(isset($_GET['id_negara']))
+			$criteria->compare('id_negara', $_GET['id_negara']);
+
+		if(isset($_GET['tanggal']))
+			$criteria->compare('tanggal', $_GET['tanggal']);
+
+		if(isset($_GET['tema']))
+			$criteria->compare('tema', $_GET['tema']);
+
 		$count = Travel::model()->count($criteria);
 		$pages = new CPagination($count);
 		$pages->pageSize = 2;

@@ -3,7 +3,7 @@
 	<div class="wrap">
 		<div class="image-product">
 			<?php
-			echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/umroh/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")), array('/umroh/detail', 'title_slug'=>$data->title_slug), array('target'=>'_blank'));
+			echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/umroh/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")), array('/umroh/detail', 'title_slug'=>$data->title_slug), array('target'=>'_localhostblank'));
 			?>
 			<?php // echo CHtml::image(Yii::app()->baseUrl."/images/umroh/".$data->gambar,'alt',array("width"=>"200px", "height"=>"200px")); ?><br>
 			<p class="text-right"><?php echo $data->judul;?></p>
@@ -24,6 +24,10 @@
 	</div>
 </div>
 <?php
+}
+
+if (!$model) {
+	echo 'tidak ada';
 }
 ?>
 
