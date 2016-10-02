@@ -19,6 +19,12 @@
     <link href="<?php echo Yii::app()->request->baseUrl;?>/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl;?>/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
 	<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+	<script>
+		jQuery.ajaxSetup({async:true});
+    	$.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+		    options.async = true;
+		});
+	</script>
   </head>
   <body>
   	<!-- Start Header -->
@@ -241,9 +247,6 @@
     	$('#reservation2').datepicker({format: 'yyyy-mm-dd'});
     	$('#reservation3').datepicker({format: 'yyyy-mm-dd'});
     	$('#reservation4').datepicker({format: 'yyyy-mm-dd'});
-    	$.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
-    options.async = true;
-});
     </script>
   </body>
 </html>

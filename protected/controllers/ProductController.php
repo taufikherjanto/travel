@@ -157,9 +157,18 @@ class ProductController extends Controller
 	public function actionDatatravel()
 	{
 		$this->layout=false;
-		$criteria = new CDbCriteria(array(
-			'order'=>'id'
-		));
+		$criteria = new CDbCriteria();
+
+		if (isset($_GET['sort'])) {
+			$sort = $_GET['sort'];
+			if ($sort == 'baru') $criteria->order = 'id DESC';
+			if ($sort == 'murah') $criteria->order = 'harga ASC';
+			if ($sort == 'mahal') $criteria->order = 'harga DESC';
+			if ($sort == 'populer') $criteria->order = 'viewer DESC';
+		} else {
+			$criteria->order = 'id ASC';
+		}
+
 		if(isset($_GET['id_region']))
 			$criteria->compare('id_region', $_GET['id_region']);
 
@@ -167,7 +176,7 @@ class ProductController extends Controller
 			$criteria->compare('id_negara', $_GET['id_negara']);
 
 		if(isset($_GET['tanggal']))
-			$criteria->compare('tanggal', $_GET['tanggal']);
+			$criteria->compare('tanggal_event', $_GET['tanggal']);
 
 		if(isset($_GET['tema']))
 			$criteria->compare('tema', $_GET['tema']);
@@ -186,9 +195,30 @@ class ProductController extends Controller
 	public function actionDatabusiness()
 	{
 		$this->layout=false;
-		$criteria = new CDbCriteria(array(
-			'order'=>'id'
-		));
+		$criteria = new CDbCriteria();
+
+		if (isset($_GET['sort'])) {
+			$sort = $_GET['sort'];
+			if ($sort == 'baru') $criteria->order = 'id DESC';
+			if ($sort == 'murah') $criteria->order = 'harga ASC';
+			if ($sort == 'mahal') $criteria->order = 'harga DESC';
+			if ($sort == 'populer') $criteria->order = 'viewer DESC';
+		} else {
+			$criteria->order='id ASC';
+		}
+
+		if(isset($_GET['tanggal']))
+			$criteria->compare('tanggal', $_GET['tanggal']);
+
+		if(isset($_GET['id_pendamping']))
+			$criteria->compare('id_pendamping', $_GET['id_pendamping']);
+
+		if(isset($_GET['id_penerbangan']))
+			$criteria->compare('id_penerbangan', $_GET['id_penerbangan']);
+
+		if(isset($_GET['paket']))
+			$criteria->compare('paket', $_GET['paket']);
+
 		$count = Business::model()->count($criteria);
 		$pages = new CPagination($count);
 		$pages->pageSize = 2;
@@ -203,9 +233,27 @@ class ProductController extends Controller
 	public function actionDatadauroh()
 	{
 		$this->layout=false;
-		$criteria = new CDbCriteria(array(
-			'order'=>'id'
-		));
+		$criteria = new CDbCriteria();
+		
+		if (isset($_GET['sort'])) {
+			$sort = $_GET['sort'];
+			if ($sort == 'baru') $criteria->order = 'id DESC';
+			if ($sort == 'murah') $criteria->order = 'harga ASC';
+			if ($sort == 'mahal') $criteria->order = 'harga DESC';
+			if ($sort == 'populer') $criteria->order = 'viewer DESC';
+		} else {
+			$criteria->order='id ASC';
+		}
+
+		if(isset($_GET['tanggal']))
+			$criteria->compare('tanggal_berangkat', $_GET['tanggal']);
+
+		if(isset($_GET['id_pendamping']))
+			$criteria->compare('id_pendamping', $_GET['id_pendamping']);
+
+		if(isset($_GET['lokasi']))
+			$criteria->compare('lokasi', $_GET['lokasi']);
+
 		$count = Dauroh::model()->count($criteria);
 		$pages = new CPagination($count);
 		$pages->pageSize = 2;
@@ -220,9 +268,29 @@ class ProductController extends Controller
 	public function actionDataumroh()
 	{
 		$this->layout=false;
-		$criteria = new CDbCriteria(array(
-			'order'=>'id'
-		));
+		$criteria = new CDbCriteria();
+		if (isset($_GET['sort'])) {
+			$sort = $_GET['sort'];
+			if ($sort == 'baru') $criteria->order = 'id DESC';
+			if ($sort == 'murah') $criteria->order = 'harga ASC';
+			if ($sort == 'mahal') $criteria->order = 'harga DESC';
+			if ($sort == 'populer') $criteria->order = 'viewer DESC';
+		} else {
+			$criteria->order='id ASC';
+		}
+
+		if(isset($_GET['tanggal']))
+			$criteria->compare('tanggal', $_GET['tanggal']);
+
+		if(isset($_GET['id_pendamping']))
+			$criteria->compare('id_pendamping', $_GET['id_pendamping']);
+
+		if(isset($_GET['id_penerbangan']))
+			$criteria->compare('id_penerbangan', $_GET['id_penerbangan']);
+
+		if(isset($_GET['jumlah_hari']))
+			$criteria->compare('jumlah_hari', $_GET['jumlah_hari']);
+
 		$count = Umroh::model()->count($criteria);
 		$pages = new CPagination($count);
 		$pages->pageSize = 2;
