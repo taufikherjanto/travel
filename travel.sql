@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 29, 2016 at 10:20 
+-- Generation Time: Oct 02, 2016 at 03:21 
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -137,7 +137,7 @@ CREATE TABLE `business` (
 
 INSERT INTO `business` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `id_pendamping`, `jumlah_hari`, `id_penerbangan`, `tanggal`, `harga`, `quota`, `quota_active`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
 (1, 3, 'Perjalanan Bisnis 1', 'perjalanan-bisnis-1', 'Deskripsi Perjalanan Bisnis 1', 5, '5', 1, '2016-10-01', '30000', 25, 0, 'business.jpg', '2016-09-30', 1, '2'),
-(2, 3, 'Perjalanan Bisnis 2', 'perjalanan-bisnis-2', 'Deskripsi Perjalanan Bisnis 2', 5, '4', 4, '2016-09-30', '3000000', 10, 0, 'business2.jpg', '2016-10-01', 1, '1'),
+(2, 3, 'Perjalanan Bisnis 2', 'perjalanan-bisnis-2', 'Deskripsi Perjalanan Bisnis 2', 5, '4', 2, '2016-09-30', '3000000', 10, 0, 'business2.jpg', '2016-10-01', 1, '1'),
 (5, 3, 'Perjalanan Bisnis 3', '', 'Deskripsi Perjalanan Bisnis 3', 6, '3', 3, '2016-09-22', '2000000', 4, 0, 'business3.jpg', '2016-09-29', 1, '0'),
 (6, 3, 'Perjalanan Business 4', 'perjalanan-business-4', 'Deskripsi Perjalanan Bisnis 4', 6, '2', 1, '0000-00-00', '2000000', 5, 5, 'business4.jpg', '2016-09-29', 1, '0'),
 (7, 3, 'Perjalanan Bisnis 5', 'perjalanan-bisnis-5', 'Deskripsi Perjalanan Bisnis 5', 6, '2', 4, '2016-10-10', '400000', 6, 6, 'jalan-bisnis.jpg', '2016-09-30', 1, '0');
@@ -798,12 +798,12 @@ CREATE TABLE `travel` (
 --
 
 INSERT INTO `travel` (`id`, `id_kategori`, `id_travel_organizer`, `judul`, `title_slug`, `id_region`, `id_negara`, `tema`, `desc`, `tanggal_event`, `harga`, `quota`, `gambar`, `tanggal_post`, `status_publish`, `viewer`) VALUES
-(1, 4, 2, 'Paket Travel Pantai Kuta', 'paket-umroh-dan-ziarah-ke-palestina', 3, 1, 'Tema Travel  A', 'Paket Travel Pantai Kuta sangat direkomendasikan', '2015-12-03', 35435453, 21, 'palestina.jpg', '2015-12-23', 1, 1),
-(5, 4, 1, 'Candi Prambanan', 'umroh-8-hari', 4, 1, 'Tema  Travel C', 'Candi Prambanan menawan', '2015-04-09', 5000, 12, 'candi_prambanan.jpg', '2016-09-07', 1, 0),
-(6, 4, 2, 'Osaka Castle', 'summer-vacation', 5, 3, 'Tema Travel A', 'Jalan-jalan ke tempat bersejarah di kastil Osaka, Jepang', '2016-09-20', 60000, 10, 'osaka-sakura1.jpg', '2016-09-07', 1, 0),
-(7, 4, 2, 'Trip Gunung Bromo', 'trip-gunung-bromo', 2, 1, 'Tema Travel B', 'Jalan jalan ke bromo', '2016-10-12', 400000, 10, 'gunungbromo.jpg', '2016-09-08', 1, 0),
-(8, 4, 3, 'Derawan', 'weekend-ke-singapura-bro', 1, 1, 'Tema Travel B', 'Menikmati panorama laut di Derawan', '2016-11-03', 2000000, 20, 'derawan.jpg', '2016-09-08', 1, 0),
-(9, 4, 3, 'Pura Tanah Lot', 'jalan-jalan-ke-thailand-dong', 3, 1, 'Tema Travel C', 'Pura Tanah Lot adalah salah satu tempat wisata di Bali yang terkenal dengan keindahannya, terutama pada saat matahari terbenam. ', '2016-11-03', 2000000, 20, 'Pura-Tanah-Lot-300x224.jpg', '2016-09-08', 1, 0);
+(1, 4, 2, 'Paket Travel Pantai Kuta', 'paket-travel-pantai-kuta', 3, 1, 'Tema Travel  A', 'Paket Travel Pantai Kuta sangat direkomendasikan', '2015-12-03', 1000000, 21, 'palestina.jpg', '2015-12-23', 1, 1),
+(5, 4, 1, 'Candi Prambanan', 'umroh-8-hari', 4, 1, 'Tema  Travel C', 'Candi Prambanan menawan', '2015-04-09', 2000000, 12, 'candi_prambanan.jpg', '2016-09-07', 1, 0),
+(6, 4, 2, 'Osaka Castle', 'summer-vacation', 5, 3, 'Tema Travel A', 'Jalan-jalan ke tempat bersejarah di kastil Osaka, Jepang', '2016-09-20', 3000000, 10, 'osaka-sakura1.jpg', '2016-09-07', 1, 0),
+(7, 4, 2, 'Trip Gunung Bromo', 'trip-gunung-bromo', 2, 1, 'Tema Travel B', 'Jalan jalan ke bromo', '2016-10-12', 4000000, 10, 'gunungbromo.jpg', '2016-09-08', 1, 0),
+(8, 4, 3, 'Derawan', 'weekend-ke-singapura-bro', 1, 1, 'Tema Travel B', 'Menikmati panorama laut di Derawan', '2016-11-03', 5000000, 20, 'derawan.jpg', '2016-09-08', 1, 0),
+(9, 4, 3, 'Pura Tanah Lot', 'jalan-jalan-ke-thailand-dong', 3, 1, 'Tema Travel C', 'Pura Tanah Lot adalah salah satu tempat wisata di Bali yang terkenal dengan keindahannya, terutama pada saat matahari terbenam. ', '2016-11-03', 6000000, 20, 'Pura-Tanah-Lot-300x224.jpg', '2016-09-08', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -913,7 +913,7 @@ INSERT INTO `umroh` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `id_pen
 (1, 1, 'Umroh Satu', 'umroh-satu', 'Deskripsi Umroh Satu', '1', 1, '7', '2016-10-01', '30000', 25, 0, 'umroh1.jpg', '2016-09-30', 1, '4'),
 (2, 1, 'Umroh Kedua', 'umroh-kedua', 'Deskripsi Umroh Kedua', '2', 2, '10', '2016-09-30', '30000', 10, 10, 'umroh2.jpg', '2016-10-01', 1, '1'),
 (3, 1, 'Umroh ketiga', 'umroh-ketiga', 'Deskripsi Umroh Ketiga', '1', 3, '7', '2016-10-21', '50000', 10, 10, 'umroh3.jpg', '2016-09-30', 1, '0'),
-(4, 1, 'Umroh Keempat', 'umroh-keempat', 'Deskripsi Umroh Keempat', '1', 4, '8', '2016-10-27', '55000', 12, 12, 'umroh4.jpg', '2016-09-30', 1, '0');
+(4, 1, 'Umroh Keempat', 'umroh-keempat', 'Deskripsi Umroh Keempat', '2', 4, '8', '2016-10-27', '55000', 12, 12, 'umroh4.jpg', '2016-09-30', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -1440,7 +1440,7 @@ ALTER TABLE `travel_gallery`
 -- AUTO_INCREMENT for table `travel_kategori`
 --
 ALTER TABLE `travel_kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `travel_organizer`
 --
