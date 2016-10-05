@@ -26,18 +26,30 @@ class DaurohController extends Controller
 	 */
 	public function accessRules()
 	{
+
+		$level = User::model()->findAllByAttributes(array('role'=>1));
+				
+				foreach ($level as $key => $value) {
+					$user_name[] = $value->username;
+				}
+		$level2 = User::model()->findAllByAttributes(array('role'=>2));
+				
+				foreach ($level2 as $key => $value2) {
+					$user_name2[] = $value2->username;
+				}
+
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('index','view', 'detail','create','update','delete', 'admin'),
+				'users'=>$user_name,
+			),
+			array('allow', // allow user to perform 'register' actions
+				'actions'=>array('index','view', 'detail'),
+				'users'=>$user_name2,
+			),
+			array('allow', // allow user to perform 'register' actions
 				'actions'=>array('index','view', 'detail'),
 				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -60,12 +72,8 @@ class DaurohController extends Controller
 
 	public function actionDetail($title_slug)
 	{
-		$model=$this->loadModelBySlug($title_slug);
-		$gallery=new DaurohGallery;
-		$this->render('detail',array(
-			'model'=>$model,
-			'gallery'=>$gallery->findAllByAttributes(array('gambar_id'=>$model->id))
-		));
+		$lihat = Dauroh::model()->findAllByAttributes(array('title_slug'=>$title_slug));
+		$this->render('detail',array('lihat'=>$lihat));
 	}
 
 	/**

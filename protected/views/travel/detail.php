@@ -1,58 +1,61 @@
-<?php
-/* @var $this TravelController */
-/* @var $model Travel */
+<!-- Start Content -->
+    <br><br>
+    <?php foreach($lihat as $item){ ?>
+    <section class="content">
+        
+        <div class="product">
+            <div class="container">             
+                <div class="col-md-12 product-price1">
+                    <div class="col-md-8 single-top">   
+                        <div class="flexslider">
+                            <ul class="slides">
+                            <?php 
+                                $idnya = $item->id;
+                                $fotox = Yii::app()->db
+                                 ->createCommand()
+                                 ->select('*')
+                                 ->from('travel_gallery')
+                                 ->where('id_travel=:id_travel', array(':id_travel'=>$idnya))
+                                 ->queryAll();
+                                 foreach($fotox as $F){ ?>
+                                    <li data-thumb="<?php echo Yii::app()->request->baseUrl ?>/images/travel_gallery/<?php echo $F['gambar'] ?>">
+                                        <img src="<?php echo Yii::app()->request->baseUrl ?>/images/travel_gallery/<?php echo $F['gambar'] ?>" />
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <!-- FlexSlider -->
+                        <script defer src="<?php echo Yii::app()->request->baseUrl ?>/js/jquery.flexslider.js"></script>
+                        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl ?>/css/flexslider.css" type="text/css" media="screen" />
 
-$this->breadcrumbs=array(
-	'Travels'=>array('index'),
-	$model->judul,
-);
+                        <script>
+                        // Can also be used with $(document).ready()
+                        $(window).load(function() {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                controlNav: "thumbnails"    
+                            });
+                        });
+                        </script>
+                    </div>
 
-$this->menu=array(
-	array('label'=>'List Travel', 'url'=>array('index')),
-	array('label'=>'Create Travel', 'url'=>array('create')),
-	array('label'=>'Update Travel', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Travel', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Travel', 'url'=>array('admin')),
-);
-?>
+                    <div class="col-md-4 single-top-in simpleCart_shelfItem">
+                        <div class="single-para ">
+                            <h4>Lorem Ipsum</h4>
+                            <h5 class="item_price">Rp.<?php echo number_format($item->harga,0,".",".") ?></h5>
+                            <p><?php echo $item->desc; ?></p>
+                                
+                                <a href="form_pemesanan.html" class="add-cart item_add">Booking</a>
+                        </div>
+                    </div>
 
-<h1>Detail Travel #<?php echo $model->judul; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'judul',
-		array(
-			'name'=>'id_kategori',
-			'value'=> $model->kategori->jenis_travel,
-		),
-		'id_region',
-		'id_negara',
-		'tema',
-		'desc',
-		'tanggal_event',
-		'harga',
-		'quota',
-		'gambar',
-		array(
-			'label'=>'gambar',
-			'type'=>'html',
-			'value'=> CHtml::image(Yii::app()->baseUrl."/images/travel/".$model->gambar,'alt',array("width"=>"150px")),
-		),
-		'tanggal_post',
-		'status_publish',
-		'viewer',
-	),
-)); ?>
-
-<?php
-	if ($gallery) {
-		foreach ($gallery as $item_gallery){
-			echo CHtml::image(Yii::app()->baseUrl."/images/gallery/".$item_gallery->gambar,'alt',array("width"=>"150px"))." ";
-		}
-	}
-	else {
-		echo 'nothing';
-	}
-?>
+                    <div class="clearfix"> </div>
+                </div>
+                
+                <div class="clearfix"> </div>
+            </div>
+        </div> 
+        
+    </section>
+    <?php } ?>
+    <!-- End Content -->

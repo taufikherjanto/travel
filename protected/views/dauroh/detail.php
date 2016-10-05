@@ -1,61 +1,61 @@
-<?php
-/* @var $this DaurohController */
-/* @var $model Dauroh */
+<!-- Start Content -->
+    <br><br>
+    <?php foreach($lihat as $item){ ?>
+    <section class="content">
+        
+        <div class="product">
+            <div class="container">             
+                <div class="col-md-12 product-price1">
+                    <div class="col-md-8 single-top">   
+                        <div class="flexslider">
+                            <ul class="slides">
+                            <?php 
+                                $idnya = $item->id;
+                                $fotox = Yii::app()->db
+                                 ->createCommand()
+                                 ->select('*')
+                                 ->from('dauroh_gallery')
+                                 ->where('gambar_id=:gambar_id', array(':gambar_id'=>$idnya))
+                                 ->queryAll();
+                                 foreach($fotox as $F){ ?>
+                                    <li data-thumb="<?php echo Yii::app()->request->baseUrl ?>/images/dauroh_gallery/<?php echo $F['gambar'] ?>">
+                                        <img src="<?php echo Yii::app()->request->baseUrl ?>/images/dauroh_gallery/<?php echo $F['gambar'] ?>" />
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <!-- FlexSlider -->
+                        <script defer src="<?php echo Yii::app()->request->baseUrl ?>/js/jquery.flexslider.js"></script>
+                        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl ?>/css/flexslider.css" type="text/css" media="screen" />
 
-$this->breadcrumbs=array(
-	'Dauroh'=>array('index'),
-	$model->judul,
-);
+                        <script>
+                        // Can also be used with $(document).ready()
+                        $(window).load(function() {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                controlNav: "thumbnails"    
+                            });
+                        });
+                        </script>
+                    </div>
 
-$this->menu=array(
-	array('label'=>'List Dauroh', 'url'=>array('index')),
-	array('label'=>'Create Dauroh', 'url'=>array('create')),
-	array('label'=>'Update Dauroh', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Dauroh', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Dauroh', 'url'=>array('admin')),
-);
-?>
+                    <div class="col-md-4 single-top-in simpleCart_shelfItem">
+                        <div class="single-para ">
+                            <h4>Lorem Ipsum</h4>
+                            <h5 class="item_price">Rp.<?php echo number_format($item->harga,0,".",".") ?></h5>
+                            <p><?php echo $item->desc; ?></p>
+                                
+                                <a href="form_pemesanan.html" class="add-cart item_add">Booking</a>
+                        </div>
+                    </div>
 
-<h1>Detail Dauroh #<?php echo $model->judul; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		array(
-			'name'=>'kategori_travel',
-			'value'=> $model->kategori->jenis_travel,
-		),
-		'judul',
-		'title_slug',
-		'desc',
-		'lokasi',
-		'tanggal_berangkat',
-		array(
-			'label'=>'Pendamping',
-			'value'=> ($model->id_pendamping) ? $model->pendamping->nama_pendamping : '' ,
-		),
-		'harga',
-		'quota',
-		'quota_active',
-		array(
-			'label'=>'gambar',
-			'type'=>'html',
-			'value'=> CHtml::image(Yii::app()->baseUrl."/images/dauroh/".$model->gambar,'alt',array("width"=>"150px")),
-		),
-		'tanggal_post',
-		'status_publish',
-		'viewer',
-	),
-)); ?>
-
-<?php
-	if ($gallery) {
-		foreach ($gallery as $item_gallery){
-			echo CHtml::image(Yii::app()->baseUrl."/images/dauroh_gallery/".$item_gallery->gambar,'alt',array("width"=>"150px"))." ";
-		}
-	}
-	else {
-		echo 'nothing';
-	}
-?>
+                    <div class="clearfix"> </div>
+                </div>
+                
+                <div class="clearfix"> </div>
+            </div>
+        </div> 
+        
+    </section>
+    <?php } ?>
+    <!-- End Content -->

@@ -6,7 +6,7 @@ class UserController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	//public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -28,7 +28,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','register'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -75,6 +75,39 @@ class UserController extends Controller
 		}
 
 		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
+
+
+		public function actionRegister()
+	{
+		$model=new User;
+		if(isset($_POST['User']))
+		{
+			$uploadedFile=CUploadedFile::getInstance($model,'image');
+			$model->username = $_POST['User']['username'];
+			$model->nama_lengkap = $_POST['User']['nama_lengkap'];
+			$model->password = $_POST['User']['password'];
+			$model->email = $_POST['User']['email'];
+			$model->telephone = $_POST['User']['telephone'];
+			$model->image = $_POST['User']['image'];
+			
+			$model->role=$_POST['User']['role'];	
+			if($uploadedFile->name != '') {
+				$model->image = CUploadedFile::getInstance($model, 'image'); //UPLOAD FILE DAN SAVE
+                $model->image->saveAs(Yii::app()->basePath.'/../images/user/'.$model->image); // UNTUK MOVE FILE
+		
+            }
+							
+			if($model->save()) {
+				
+                Yii::app()->user->setFlash('berhasil','Selamat! akun anda berhasil dibuat');
+                $this->redirect(array('user/after_register'));
+			}
+		}
+
+		$this->render('register',array(
 			'model'=>$model,
 		));
 	}
