@@ -18,6 +18,7 @@
     <link href="<?php echo Yii::app()->request->baseUrl;?>/css/font.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl;?>/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl;?>/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo Yii::app()->request->baseUrl;?>/css/select2.css" rel="stylesheet" type="text/css" />
 	<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 	<script>
 		jQuery.ajaxSetup({async:true});
@@ -214,6 +215,7 @@
   	<!-- End Footer -->
     <script src="<?php echo Yii::app()->request->baseUrl;?>/js/bootstrap.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl;?>/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl;?>/js/select2.min.js"></script>
     <script>
     	$(document).ready(function() {
 		    function toggleNavbarMethod() {

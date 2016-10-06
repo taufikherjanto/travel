@@ -9,18 +9,21 @@
                     <div class="col-md-8 single-top">   
                         <div class="flexslider">
                             <ul class="slides">
-                            <?php 
-                                $idnya = $item->id;
-                                $fotox = Yii::app()->db
-                                 ->createCommand()
-                                 ->select('*')
-                                 ->from('business_gallery')
-                                 ->where('gambar_id=:gambar_id', array(':gambar_id'=>$idnya))
-                                 ->queryAll();
-                                 foreach($fotox as $F){ ?>
-                                    <li data-thumb="<?php echo Yii::app()->request->baseUrl ?>/images/business_gallery/<?php echo $F['gambar'] ?>">
-                                        <img src="<?php echo Yii::app()->request->baseUrl ?>/images/business_gallery/<?php echo $F['gambar'] ?>" />
-                                    </li>
+                                <li data-thumb="<?php echo Yii::app()->request->baseUrl ?>/images/business/<?php echo $item->gambar; ?>">
+                                    <img src="<?php echo Yii::app()->request->baseUrl ?>/images/business/<?php echo $item->gambar; ?>" />
+                                </li>
+                                <?php 
+                                    $idnya = $item->id;
+                                    $fotox = Yii::app()->db
+                                     ->createCommand()
+                                     ->select('*')
+                                     ->from('business_gallery')
+                                     ->where('gambar_id=:gambar_id', array(':gambar_id'=>$idnya))
+                                     ->queryAll();
+                                     foreach($fotox as $F){ ?>
+                                        <li data-thumb="<?php echo Yii::app()->request->baseUrl ?>/images/business_gallery/<?php echo $F['gambar'] ?>">
+                                            <img src="<?php echo Yii::app()->request->baseUrl ?>/images/business_gallery/<?php echo $F['gambar'] ?>" />
+                                        </li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -44,8 +47,8 @@
                             <h4>Lorem Ipsum</h4>
                             <h5 class="item_price">Rp.<?php echo number_format($item->harga,0,".",".") ?></h5>
                             <p><?php echo $item->desc; ?></p>
-                                
-                                <a href="form_pemesanan.html" class="add-cart item_add">Booking</a>
+                            <?php echo CHtml::link('Booking', array('/transaksi/order', 'id'=>$item->id, 'kategori'=>$item->id_kategori), array('class'=>'add-cart item_add btn-letter'));
+                            ?>
                         </div>
                     </div>
 

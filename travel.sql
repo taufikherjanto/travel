@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2016 at 03:21 
+-- Generation Time: Oct 06, 2016 at 10:39 
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -447,40 +447,41 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `nama_produk`, `imag
 
 CREATE TABLE `order_master` (
   `id` int(11) NOT NULL,
-  `user_id` varchar(30) NOT NULL DEFAULT '0',
-  `anak_id` int(11) NOT NULL DEFAULT '0',
-  `total_item` varchar(255) NOT NULL,
-  `total_qty` varchar(255) NOT NULL,
-  `total_payment` varchar(255) NOT NULL,
-  `total_real` int(30) NOT NULL,
-  `unique` int(10) NOT NULL,
-  `status_order` varchar(1) NOT NULL DEFAULT '0',
-  `created` varchar(255) NOT NULL,
-  `updated` varchar(255) NOT NULL,
-  `verifikasi` varchar(10) NOT NULL DEFAULT '',
-  `bukti` varchar(255) NOT NULL DEFAULT '',
-  `st` int(11) NOT NULL,
-  `tipe` int(11) NOT NULL DEFAULT '0'
+  `id_user` int(11) NOT NULL,
+  `id_user_ref` int(11) NOT NULL,
+  `id_travel` int(11) NOT NULL,
+  `id_kategori_travel` int(11) NOT NULL,
+  `id_type_payment` int(11) NOT NULL,
+  `payment` int(11) NOT NULL,
+  `payment_code` varchar(255) NOT NULL,
+  `verifikasi_code` varchar(255) NOT NULL,
+  `status_payment` int(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `last_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order_master`
 --
 
-INSERT INTO `order_master` (`id`, `user_id`, `anak_id`, `total_item`, `total_qty`, `total_payment`, `total_real`, `unique`, `status_order`, `created`, `updated`, `verifikasi`, `bukti`, `st`, `tipe`) VALUES
-(141, '99', 0, '1', '1', '1245952', 1245000, 952, '2', '2016-08-04 19:06:58', '2016-08-04 19:08:44', 'qxyhHHZU1E', '1', 1, 0),
-(142, '99', 0, '1', '1', '1195344', 1195000, 344, '2', '2016-08-04 22:53:45', '2016-08-04 22:55:01', '6T~PJOnaCe', '1', 1, 0),
-(143, '99', 0, '1', '1', '1195284', 1195000, 284, '2', '2016-08-04 23:02:26', '2016-08-04 23:56:26', 'lrjgWPskzP', '1', 1, 0),
-(145, '99', 17, '1', '1', '1195133', 1195000, 133, '2', '2016:08:05 02:48:26', '2016-08-05 02:51:19', 'hkKGVwnNGN', '1', 1, 1),
-(146, '99', 25, '1', '1', '3000903', 3000000, 903, '0', '2016-08-05 00:58:18', '0000-00-00 00:00:00', 'o_b5UQpHsg', 'belum verifikasi', 0, 0),
-(147, '99', 17, '1', '1', '0', 0, 0, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0', 'baru', 0, 1),
-(148, '78', 18, '1', '1', '900000616', 900000000, 616, '2', '2016:08:05 16:41:29', '2016-08-05 15:39:33', 'oFkMxwrs0H', 'belum verifikasi', 1, 0),
-(149, '100', 20, '1', '1', '1195962', 1195000, 962, '2', '2016-08-12 21:32:27', '2016-08-12 21:33:12', 'TIKF6bcgL~', '1', 1, 0),
-(150, '100', 20, '1', '1', '300684', 300000, 684, '2', '2016:08:16 15:42:35', '2016-08-16 15:58:26', 'c0hG~5LHCI', '1', 1, 1),
-(151, '100', 23, '1', '1', '1445758', 1445000, 758, '2', '2016-08-16 16:09:45', '2016-08-16 16:11:01', 'upOjk1xRNv', '1', 1, 0),
-(152, '100', 20, '1', '1', '300519', 300000, 519, '0', '2016:08:16 17:42:06', '0000-00-00 00:00:00', '6r98K~uWB_', 'belum verifikasi', 0, 1),
-(153, '100', 19, '1', '2', '2390953', 2390000, 953, '0', '2016-08-20 19:19:15', '0000-00-00 00:00:00', 'I7tqi5UpOf', 'belum verifikasi', 0, 0),
-(154, '100', 21, '1', '1', '1195481', 1195000, 481, '2', '2016-08-25 12:55:37', '2016-08-25 12:56:42', '4oER1mVN9T', '1', 1, 0);
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `type`) VALUES
+(1, 'DP'),
+(2, 'Lunas');
 
 -- --------------------------------------------------------
 
@@ -736,37 +737,8 @@ CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL,
   `id_om` varchar(255) NOT NULL DEFAULT '',
   `gambar` varchar(255) NOT NULL DEFAULT '',
-  `updated` date NOT NULL DEFAULT '0000-00-00'
+  `updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`id`, `id_om`, `gambar`, `updated`) VALUES
-(56, '129', 'bantu.jpg', '2016-08-04'),
-(57, '130', '13892163_1047344225314633_7524210480949860707_n.jpg', '2016-08-04'),
-(58, '131', 'bantu.jpg', '2016-08-04'),
-(59, '132', 'bantu.jpg', '2016-08-04'),
-(60, '133', '_S__21103217.jpg', '2016-08-04'),
-(61, '134', '13707774_1352746598086182_1446769216611008422_n.jpg', '2016-08-04'),
-(62, '135', 'muse_1.jpg', '2016-08-04'),
-(63, '136', '2.jpg', '2016-08-04'),
-(64, '137', '6.jpg', '2016-08-04'),
-(65, '140', '', '2016-08-04'),
-(66, '140', '', '2016-08-04'),
-(67, '140', '3431580-22751_one_piece_luffy__one_piece.jpg', '2016-08-04'),
-(68, '139', '', '2016-08-04'),
-(69, '139', '10-Ways-to-Learn-Java-in-Just-a-Couple-of-Weeks.jpg', '2016-08-04'),
-(70, '141', 'bantu.jpg', '2016-08-04'),
-(71, '142', 'bantu.jpg', '2016-08-04'),
-(72, '143', 'bantu.jpg', '2016-08-04'),
-(73, '145', 'bantu.jpg', '2016-08-05'),
-(74, '148', 'bantu.jpg', '2016-08-05'),
-(75, '149', '13707774_1352746598086182_1446769216611008422_n.jpg', '2016-08-12'),
-(76, '150', '20160321085408.jpg', '2016-08-16'),
-(77, '151', '20160321085406.jpg', '2016-08-16'),
-(78, '154', 'e13a98fb6e1d11c776da1091d62cd5b7.jpg', '2016-08-25');
 
 -- --------------------------------------------------------
 
@@ -803,7 +775,7 @@ INSERT INTO `travel` (`id`, `id_kategori`, `id_travel_organizer`, `judul`, `titl
 (6, 4, 2, 'Osaka Castle', 'summer-vacation', 5, 3, 'Tema Travel A', 'Jalan-jalan ke tempat bersejarah di kastil Osaka, Jepang', '2016-09-20', 3000000, 10, 'osaka-sakura1.jpg', '2016-09-07', 1, 0),
 (7, 4, 2, 'Trip Gunung Bromo', 'trip-gunung-bromo', 2, 1, 'Tema Travel B', 'Jalan jalan ke bromo', '2016-10-12', 4000000, 10, 'gunungbromo.jpg', '2016-09-08', 1, 0),
 (8, 4, 3, 'Derawan', 'weekend-ke-singapura-bro', 1, 1, 'Tema Travel B', 'Menikmati panorama laut di Derawan', '2016-11-03', 5000000, 20, 'derawan.jpg', '2016-09-08', 1, 0),
-(9, 4, 3, 'Pura Tanah Lot', 'jalan-jalan-ke-thailand-dong', 3, 1, 'Tema Travel C', 'Pura Tanah Lot adalah salah satu tempat wisata di Bali yang terkenal dengan keindahannya, terutama pada saat matahari terbenam. ', '2016-11-03', 6000000, 20, 'Pura-Tanah-Lot-300x224.jpg', '2016-09-08', 1, 0);
+(9, 4, 3, 'Pura Tanah Lot', 'pura-tanah-lot', 3, 1, 'Tema Travel C', 'Pura Tanah Lot adalah salah satu tempat wisata di Bali yang terkenal dengan keindahannya, terutama pada saat matahari terbenam. ', '2016-11-03', 6000000, 20, 'Pura-Tanah-Lot-300x224.jpg', '2016-09-08', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -996,7 +968,8 @@ INSERT INTO `user` (`id`, `username`, `nama_lengkap`, `password`, `email`, `role
 (97, 'dahlanganteng', 'Pradahlan', '231f748bbdc9066a212170b7d0d43518', 'sindu@gmail.com', 2, '087690000', '', 1098),
 (98, 'andoganteng', 'fernando situmeang', 'a5d8f829b66c93159c2487ef43a2ec0b', 'situmeang94@gmail.com', 2, '098098080', '', 1153),
 (99, 'rahmawati', 'rahmawati', 'dc0271053c027f3ac28884a17ac1f939', 'rachma90@yahoo.com', 2, '08128991074', '', 1713),
-(100, 'dadang', 'dadang', '0037bb978d51e84d1ad5478e85430f26', 'dadang@gamil.com', 2, '12313123', '', 2885);
+(100, 'dadang', 'dadang', '0037bb978d51e84d1ad5478e85430f26', 'dadang@gamil.com', 2, '12313123', '', 2885),
+(102, 'taufik', 'taufik', '', 'taufik.herjanto@live.com', 2, '254324242', 'Selection_030.png', 0);
 
 -- --------------------------------------------------------
 
@@ -1021,6 +994,29 @@ CREATE TABLE `user_detail` (
 INSERT INTO `user_detail` (`id`, `id_user`, `gambar`, `biodata`, `pekerjaan`, `tanggal_lahir`, `kelamin`) VALUES
 (3, 100, '13707774_1352746598086182_1446769216611008422_n.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets co', 'pegawai superman', '1993-07-18', 'Pria'),
 (4, 78, '62817815459.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when', 'konsultan', '1993-12-14', 'Wanita');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_ref`
+--
+
+CREATE TABLE `user_ref` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `nama_ref` varchar(255) NOT NULL,
+  `tel_ref` varchar(255) NOT NULL,
+  `alamat_ref` text NOT NULL,
+  `created_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_ref`
+--
+
+INSERT INTO `user_ref` (`id`, `id_user`, `nama_ref`, `tel_ref`, `alamat_ref`, `created_date`) VALUES
+(1, 1, 'Arya', '12345678', 'Jakarta', '2016-10-06 23:48:31'),
+(2, 1, 'Arya Dumet School', '085780690696', 'Srengseng Sawah, Jakarta', '2016-10-07 03:08:58');
 
 -- --------------------------------------------------------
 
@@ -1151,6 +1147,12 @@ ALTER TABLE `order_master`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pendamping`
 --
 ALTER TABLE `pendamping`
@@ -1272,6 +1274,12 @@ ALTER TABLE `user_detail`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_ref`
+--
+ALTER TABLE `user_ref`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ustad`
 --
 ALTER TABLE `ustad`
@@ -1362,10 +1370,10 @@ ALTER TABLE `negara`
 ALTER TABLE `order_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
 --
--- AUTO_INCREMENT for table `order_master`
+-- AUTO_INCREMENT for table `payment`
 --
-ALTER TABLE `order_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+ALTER TABLE `payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pendamping`
 --
@@ -1422,11 +1430,6 @@ ALTER TABLE `testimoni`
 ALTER TABLE `tipe_pembayaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `transaksi`
---
-ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
---
 -- AUTO_INCREMENT for table `travel`
 --
 ALTER TABLE `travel`
@@ -1460,12 +1463,17 @@ ALTER TABLE `umroh_gallery`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 --
 -- AUTO_INCREMENT for table `user_detail`
 --
 ALTER TABLE `user_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `user_ref`
+--
+ALTER TABLE `user_ref`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ustad`
 --
