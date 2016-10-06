@@ -465,7 +465,6 @@ $(document).ready(function(){
 	    value_form = $("#form-umroh").serialize();
 	    sort = '&sort=' + $(this).attr('id');
 	    parameter_data = value_form+sort;
-	    $('#list-item-umroh').empty();
 	    $('#list-item-umroh').load('<?php echo Yii::app()->request->baseUrl;?>/product/dataumroh?'+parameter_data);
 	});
 
@@ -474,7 +473,6 @@ $(document).ready(function(){
 	    value_form = $("#form-travel").serialize();
 	    sort = '&sort=' + $(this).attr('id');
 	    parameter_data = value_form+sort;
-	    $('#list-item-travel').empty();
 	    url = '<?php echo Yii::app()->request->baseUrl;?>/product/datatravel?'+parameter_data;
 	    $('#list-item-travel').load(url);
 	    console.log(url);
@@ -485,7 +483,6 @@ $(document).ready(function(){
 	    value_form = $("#form-business").serialize();
 	    sort = '&sort=' + $(this).attr('id');
 	    parameter_data = value_form+sort;
-	    $('#list-item-business').empty();
 	    $('#list-item-business').load('<?php echo Yii::app()->request->baseUrl;?>/product/databusiness?'+parameter_data);
 	});
 
@@ -494,7 +491,6 @@ $(document).ready(function(){
 	    value_form = $("#form-dauroh").serialize();
 	    sort = '&sort=' + $(this).attr('id');
 	    parameter_data = value_form+sort;
-	    $('#list-item-dauroh').empty();
 	    $('#list-item-dauroh').load('<?php echo Yii::app()->request->baseUrl;?>/product/datadauroh?'+parameter_data);
 	});
 });
