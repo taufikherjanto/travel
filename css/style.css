@@ -408,7 +408,7 @@ opacity: 0.5%;
     position: relative;
     top: -160px;
     left: 40px;
-    z-index: -999999;
+    z-index: 2;
 }
 
 .content .tab-description .content-product .btn-letter a{
@@ -778,7 +778,7 @@ footer .bottom-footer {
     border: 0;
     font-size: 10pt;
     line-height: 24px;
-    color: #ccc;
+    color: black;
 }
 
 /* Style Select */

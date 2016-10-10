@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.0.10.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 06, 2016 at 10:39 
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Host: localhost:3306
+-- Generation Time: Oct 10, 2016 at 03:35 PM
+-- Server version: 5.6.33
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `travel`
+-- Database: `gswrgpnu_jalanhalal`
 --
 
 -- --------------------------------------------------------
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `anak`
 --
 
-CREATE TABLE `anak` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `anak` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(255) NOT NULL DEFAULT '',
   `id_event` int(11) NOT NULL DEFAULT '0',
   `nama` varchar(255) DEFAULT NULL,
@@ -49,8 +49,9 @@ CREATE TABLE `anak` (
   `role` int(11) NOT NULL DEFAULT '0',
   `view` int(11) NOT NULL,
   `time` varchar(255) NOT NULL DEFAULT '',
-  `continue` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `continue` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `anak`
@@ -74,8 +75,8 @@ INSERT INTO `anak` (`id`, `user_id`, `id_event`, `nama`, `title_slug`, `umur`, `
 -- Table structure for table `article`
 --
 
-CREATE TABLE `article` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `judul` varchar(255) NOT NULL DEFAULT '',
   `title_slug` varchar(255) NOT NULL DEFAULT '',
   `gambar` varchar(255) NOT NULL DEFAULT '',
@@ -83,8 +84,9 @@ CREATE TABLE `article` (
   `keterangan_panjang` text NOT NULL,
   `tanggal` date NOT NULL DEFAULT '0000-00-00',
   `video` varchar(255) DEFAULT '',
-  `view` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+  `view` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `article`
@@ -100,11 +102,12 @@ INSERT INTO `article` (`id`, `judul`, `title_slug`, `gambar`, `deskripsi`, `kete
 -- Table structure for table `artikel_gallery`
 --
 
-CREATE TABLE `artikel_gallery` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `artikel_gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) NOT NULL DEFAULT '',
-  `gambar_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gambar_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -112,8 +115,8 @@ CREATE TABLE `artikel_gallery` (
 -- Table structure for table `business`
 --
 
-CREATE TABLE `business` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `business` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_kategori` int(11) DEFAULT NULL,
   `judul` varchar(255) NOT NULL DEFAULT '',
   `title_slug` varchar(255) NOT NULL DEFAULT '',
@@ -128,8 +131,9 @@ CREATE TABLE `business` (
   `gambar` varchar(255) NOT NULL DEFAULT '',
   `tanggal_post` varchar(255) NOT NULL DEFAULT '',
   `status_publish` int(11) NOT NULL DEFAULT '0',
-  `viewer` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `viewer` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `business`
@@ -148,11 +152,12 @@ INSERT INTO `business` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `id_
 -- Table structure for table `business_gallery`
 --
 
-CREATE TABLE `business_gallery` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `business_gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) DEFAULT NULL,
-  `gambar_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gambar_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `business_gallery`
@@ -169,8 +174,8 @@ INSERT INTO `business_gallery` (`id`, `gambar`, `gambar_id`) VALUES
 -- Table structure for table `dauroh`
 --
 
-CREATE TABLE `dauroh` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `dauroh` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_kategori` int(11) NOT NULL DEFAULT '0',
   `judul` varchar(255) NOT NULL DEFAULT '',
   `title_slug` varchar(255) NOT NULL DEFAULT '',
@@ -184,8 +189,9 @@ CREATE TABLE `dauroh` (
   `gambar` varchar(255) NOT NULL DEFAULT '',
   `tanggal_post` varchar(255) NOT NULL DEFAULT '',
   `status_publish` int(11) NOT NULL DEFAULT '0',
-  `viewer` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `viewer` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `dauroh`
@@ -202,11 +208,12 @@ INSERT INTO `dauroh` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `lokas
 -- Table structure for table `dauroh_gallery`
 --
 
-CREATE TABLE `dauroh_gallery` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `dauroh_gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) DEFAULT NULL,
-  `gambar_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gambar_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `dauroh_gallery`
@@ -223,13 +230,14 @@ INSERT INTO `dauroh_gallery` (`id`, `gambar`, `gambar_id`) VALUES
 -- Table structure for table `event_list`
 --
 
-CREATE TABLE `event_list` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `event_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_event` varchar(255) NOT NULL DEFAULT '',
   `deskripsi` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
-  `title_slug` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `title_slug` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `event_list`
@@ -247,15 +255,16 @@ INSERT INTO `event_list` (`id`, `nama_event`, `deskripsi`, `status`, `title_slug
 -- Table structure for table `feedback`
 --
 
-CREATE TABLE `feedback` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL DEFAULT '0',
   `id_anak` int(11) NOT NULL DEFAULT '0',
   `pesan_anak` text NOT NULL,
   `pesan_donatur` text NOT NULL,
   `pesan_bantusesama` text NOT NULL,
-  `st` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `st` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `feedback`
@@ -281,11 +290,12 @@ INSERT INTO `feedback` (`id`, `id_user`, `id_anak`, `pesan_anak`, `pesan_donatur
 -- Table structure for table `gallery`
 --
 
-CREATE TABLE `gallery` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) NOT NULL DEFAULT '',
-  `produk_id` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `produk_id` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `gallery`
@@ -302,11 +312,12 @@ INSERT INTO `gallery` (`id`, `gambar`, `produk_id`) VALUES
 -- Table structure for table `gallery_anak`
 --
 
-CREATE TABLE `gallery_anak` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `gallery_anak` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) NOT NULL DEFAULT '',
-  `product_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `product_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -314,11 +325,12 @@ CREATE TABLE `gallery_anak` (
 -- Table structure for table `gallery_progres`
 --
 
-CREATE TABLE `gallery_progres` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `gallery_progres` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) NOT NULL DEFAULT '',
-  `anak_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `anak_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -326,10 +338,11 @@ CREATE TABLE `gallery_progres` (
 -- Table structure for table `kelamin`
 --
 
-CREATE TABLE `kelamin` (
-  `id` int(11) NOT NULL,
-  `jenis` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `kelamin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `kelamin`
@@ -345,14 +358,15 @@ INSERT INTO `kelamin` (`id`, `jenis`) VALUES
 -- Table structure for table `komentar`
 --
 
-CREATE TABLE `komentar` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `komentar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` varchar(255) NOT NULL DEFAULT '0',
   `user_id` varchar(100) NOT NULL DEFAULT '0',
   `date` date NOT NULL DEFAULT '0000-00-00',
   `komen` text NOT NULL,
-  `st` int(11) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `st` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=121 ;
 
 --
 -- Dumping data for table `komentar`
@@ -384,10 +398,11 @@ INSERT INTO `komentar` (`id`, `product_id`, `user_id`, `date`, `komen`, `st`) VA
 -- Table structure for table `negara`
 --
 
-CREATE TABLE `negara` (
-  `id` int(11) NOT NULL,
-  `nama_negara` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `negara` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_negara` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `negara`
@@ -404,8 +419,8 @@ INSERT INTO `negara` (`id`, `nama_negara`) VALUES
 -- Table structure for table `order_detail`
 --
 
-CREATE TABLE `order_detail` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `order_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `order_id` varchar(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
   `nama_produk` varchar(255) DEFAULT NULL,
@@ -417,8 +432,9 @@ CREATE TABLE `order_detail` (
   `user_id` int(11) DEFAULT '0',
   `uploaded_verifikasi` varchar(255) NOT NULL DEFAULT '0',
   `updated` date NOT NULL DEFAULT '0000-00-00',
-  `tipe` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tipe` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=180 ;
 
 --
 -- Dumping data for table `order_detail`
@@ -445,8 +461,8 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `nama_produk`, `imag
 -- Table structure for table `order_master`
 --
 
-CREATE TABLE `order_master` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `order_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `id_user_ref` int(11) NOT NULL,
   `id_travel` int(11) NOT NULL,
@@ -457,12 +473,16 @@ CREATE TABLE `order_master` (
   `verifikasi_code` varchar(255) NOT NULL,
   `status_payment` int(11) NOT NULL,
   `created_date` datetime NOT NULL,
-  `last_update` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `last_update` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `order_master`
 --
+
+INSERT INTO `order_master` (`id`, `id_user`, `id_user_ref`, `id_travel`, `id_kategori_travel`, `id_type_payment`, `payment`, `payment_code`, `verifikasi_code`, `status_payment`, `created_date`, `last_update`) VALUES
+(1, 78, 8, 1, 1, 2, 30000, '812', 'aOMLAGmsyN', 1, '2016-10-10 15:12:55', '2016-10-10 15:34:29');
 
 -- --------------------------------------------------------
 
@@ -470,10 +490,11 @@ CREATE TABLE `order_master` (
 -- Table structure for table `payment`
 --
 
-CREATE TABLE `payment` (
-  `id` int(11) NOT NULL,
-  `type` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `payment`
@@ -489,11 +510,12 @@ INSERT INTO `payment` (`id`, `type`) VALUES
 -- Table structure for table `pendamping`
 --
 
-CREATE TABLE `pendamping` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pendamping` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_pendamping` varchar(255) NOT NULL DEFAULT '',
-  `desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `desc` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `pendamping`
@@ -513,10 +535,11 @@ INSERT INTO `pendamping` (`id`, `nama_pendamping`, `desc`) VALUES
 -- Table structure for table `penerbangan`
 --
 
-CREATE TABLE `penerbangan` (
-  `id` int(11) NOT NULL,
-  `nama_penerbangan` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `penerbangan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_penerbangan` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `penerbangan`
@@ -534,15 +557,16 @@ INSERT INTO `penerbangan` (`id`, `nama_penerbangan`) VALUES
 -- Table structure for table `progres`
 --
 
-CREATE TABLE `progres` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `progres` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_donatur` int(11) NOT NULL DEFAULT '0',
   `id_anak` int(11) NOT NULL DEFAULT '0',
   `progres` varchar(255) NOT NULL DEFAULT '',
   `post_date` date NOT NULL DEFAULT '0000-00-00',
   `pesan` text NOT NULL,
-  `gambar` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gambar` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `progres`
@@ -565,10 +589,11 @@ INSERT INTO `progres` (`id`, `id_donatur`, `id_anak`, `progres`, `post_date`, `p
 -- Table structure for table `region`
 --
 
-CREATE TABLE `region` (
-  `id` int(11) NOT NULL,
-  `nama_region` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `region` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_region` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `region`
@@ -587,8 +612,8 @@ INSERT INTO `region` (`id`, `nama_region`) VALUES
 -- Table structure for table `rekomendasi`
 --
 
-CREATE TABLE `rekomendasi` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `rekomendasi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_rekomen` varchar(255) NOT NULL DEFAULT '',
   `email_rekomen` varchar(255) NOT NULL DEFAULT '',
   `telp_rekomen` varchar(255) NOT NULL DEFAULT '',
@@ -602,8 +627,9 @@ CREATE TABLE `rekomendasi` (
   `gambar` varchar(255) NOT NULL DEFAULT '',
   `video` varchar(255) NOT NULL DEFAULT '',
   `date` varchar(255) NOT NULL DEFAULT '',
-  `st` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `st` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `rekomendasi`
@@ -620,11 +646,12 @@ INSERT INTO `rekomendasi` (`id`, `nama_rekomen`, `email_rekomen`, `telp_rekomen`
 -- Table structure for table `rekomendasi_gallery`
 --
 
-CREATE TABLE `rekomendasi_gallery` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `rekomendasi_gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_rekomendasi` int(11) NOT NULL DEFAULT '0',
-  `gambar` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gambar` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `rekomendasi_gallery`
@@ -642,14 +669,15 @@ INSERT INTO `rekomendasi_gallery` (`id`, `id_rekomendasi`, `gambar`) VALUES
 -- Table structure for table `request_saldo`
 --
 
-CREATE TABLE `request_saldo` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `request_saldo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL DEFAULT '0',
   `nama_rekening` varchar(255) NOT NULL DEFAULT '',
   `nama_bank` varchar(255) NOT NULL DEFAULT '',
   `no_rek` int(3) NOT NULL DEFAULT '0',
-  `st` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `st` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -657,11 +685,12 @@ CREATE TABLE `request_saldo` (
 -- Table structure for table `status_order`
 --
 
-CREATE TABLE `status_order` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `status_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `status` varchar(20) NOT NULL DEFAULT '',
-  `nilai` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nilai` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `status_order`
@@ -677,11 +706,12 @@ INSERT INTO `status_order` (`id`, `status`, `nilai`) VALUES
 -- Table structure for table `status_progres`
 --
 
-CREATE TABLE `status_progres` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `status_progres` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(255) NOT NULL DEFAULT '',
-  `status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `status_progres`
@@ -699,14 +729,15 @@ INSERT INTO `status_progres` (`id`, `nama`, `status`) VALUES
 -- Table structure for table `testimoni`
 --
 
-CREATE TABLE `testimoni` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `testimoni` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) NOT NULL DEFAULT '',
   `nama` varchar(255) NOT NULL DEFAULT '',
   `testimoni` varchar(255) NOT NULL DEFAULT '',
   `tanggal` date NOT NULL DEFAULT '0000-00-00',
-  `st` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `st` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -714,10 +745,11 @@ CREATE TABLE `testimoni` (
 -- Table structure for table `tipe_pembayaran`
 --
 
-CREATE TABLE `tipe_pembayaran` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `tipe_pembayaran` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tipe_pembayaran`
@@ -733,12 +765,20 @@ INSERT INTO `tipe_pembayaran` (`id`, `nama`) VALUES
 -- Table structure for table `transaksi`
 --
 
-CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transaksi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_om` varchar(255) NOT NULL DEFAULT '',
   `gambar` varchar(255) NOT NULL DEFAULT '',
-  `updated` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `id_om`, `gambar`, `updated`) VALUES
+(1, '1', 'komponen_analisa_biaya_usaha_tani.jpg', '2016-10-10 15:34:29');
 
 -- --------------------------------------------------------
 
@@ -746,8 +786,8 @@ CREATE TABLE `transaksi` (
 -- Table structure for table `travel`
 --
 
-CREATE TABLE `travel` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `travel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_kategori` int(11) NOT NULL,
   `id_travel_organizer` int(11) NOT NULL,
   `judul` varchar(100) NOT NULL,
@@ -762,8 +802,10 @@ CREATE TABLE `travel` (
   `gambar` varchar(255) NOT NULL,
   `tanggal_post` date NOT NULL,
   `status_publish` int(11) NOT NULL,
-  `viewer` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `viewer` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slug` (`title_slug`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `travel`
@@ -783,11 +825,12 @@ INSERT INTO `travel` (`id`, `id_kategori`, `id_travel_organizer`, `judul`, `titl
 -- Table structure for table `travel_gallery`
 --
 
-CREATE TABLE `travel_gallery` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `travel_gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_travel` int(11) NOT NULL,
-  `gambar` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gambar` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `travel_gallery`
@@ -810,11 +853,12 @@ INSERT INTO `travel_gallery` (`id`, `id_travel`, `gambar`) VALUES
 -- Table structure for table `travel_kategori`
 --
 
-CREATE TABLE `travel_kategori` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `travel_kategori` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_travel` varchar(255) NOT NULL,
-  `status_publish` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status_publish` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `travel_kategori`
@@ -832,16 +876,17 @@ INSERT INTO `travel_kategori` (`id`, `jenis_travel`, `status_publish`) VALUES
 -- Table structure for table `travel_organizer`
 --
 
-CREATE TABLE `travel_organizer` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `travel_organizer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_travel_organizer` varchar(255) NOT NULL,
   `pemilik` varchar(255) NOT NULL,
   `no_telp` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
   `deskripsi_perusahaan` text NOT NULL,
-  `status_perusahaan` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status_perusahaan` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `travel_organizer`
@@ -858,8 +903,8 @@ INSERT INTO `travel_organizer` (`id`, `nama_travel_organizer`, `pemilik`, `no_te
 -- Table structure for table `umroh`
 --
 
-CREATE TABLE `umroh` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `umroh` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_kategori` int(11) DEFAULT NULL,
   `judul` varchar(255) NOT NULL DEFAULT '',
   `title_slug` varchar(255) NOT NULL DEFAULT '',
@@ -874,8 +919,9 @@ CREATE TABLE `umroh` (
   `gambar` varchar(255) NOT NULL DEFAULT '',
   `tanggal_post` varchar(255) NOT NULL DEFAULT '',
   `status_publish` int(11) NOT NULL DEFAULT '0',
-  `viewer` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `viewer` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `umroh`
@@ -893,11 +939,12 @@ INSERT INTO `umroh` (`id`, `id_kategori`, `judul`, `title_slug`, `desc`, `id_pen
 -- Table structure for table `umroh_gallery`
 --
 
-CREATE TABLE `umroh_gallery` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `umroh_gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `gambar` varchar(255) DEFAULT NULL,
-  `gambar_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gambar_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `umroh_gallery`
@@ -915,8 +962,8 @@ INSERT INTO `umroh_gallery` (`id`, `gambar`, `gambar_id`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `nama_lengkap` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -924,8 +971,9 @@ CREATE TABLE `user` (
   `role` int(1) DEFAULT '0',
   `telephone` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT '',
-  `saldo` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `saldo` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
 
 --
 -- Dumping data for table `user`
@@ -977,15 +1025,16 @@ INSERT INTO `user` (`id`, `username`, `nama_lengkap`, `password`, `email`, `role
 -- Table structure for table `user_detail`
 --
 
-CREATE TABLE `user_detail` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL DEFAULT '0',
   `gambar` varchar(255) NOT NULL DEFAULT '',
   `biodata` text NOT NULL,
   `pekerjaan` varchar(255) NOT NULL DEFAULT '',
   `tanggal_lahir` date NOT NULL DEFAULT '0000-00-00',
-  `kelamin` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `kelamin` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `user_detail`
@@ -1001,22 +1050,22 @@ INSERT INTO `user_detail` (`id`, `id_user`, `gambar`, `biodata`, `pekerjaan`, `t
 -- Table structure for table `user_ref`
 --
 
-CREATE TABLE `user_ref` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user_ref` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `nama_ref` varchar(255) NOT NULL,
   `tel_ref` varchar(255) NOT NULL,
   `alamat_ref` text NOT NULL,
-  `created_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `user_ref`
 --
 
 INSERT INTO `user_ref` (`id`, `id_user`, `nama_ref`, `tel_ref`, `alamat_ref`, `created_date`) VALUES
-(1, 1, 'Arya', '12345678', 'Jakarta', '2016-10-06 23:48:31'),
-(2, 1, 'Arya Dumet School', '085780690696', 'Srengseng Sawah, Jakarta', '2016-10-07 03:08:58');
+(8, 78, 'Merciana', '123123123', 'Jakarta Selatan', '2016-10-10 15:12:55');
 
 -- --------------------------------------------------------
 
@@ -1024,13 +1073,14 @@ INSERT INTO `user_ref` (`id`, `id_user`, `nama_ref`, `tel_ref`, `alamat_ref`, `c
 -- Table structure for table `ustad`
 --
 
-CREATE TABLE `ustad` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ustad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_ustad` varchar(255) NOT NULL,
   `deskripsi_ustad` text NOT NULL,
   `foto` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `ustad`
@@ -1040,445 +1090,6 @@ INSERT INTO `ustad` (`id`, `nama_ustad`, `deskripsi_ustad`, `foto`, `email`) VAL
 (1, 'Yusuf Mansur', 'Ustad yang terkenal dengan materi sedekah', 'yusuf-mansur.jpg', 'yusufmansur@mail.com'),
 (2, 'Ustad Maulana', 'Ustad yang terkenal dengan gaya "jamaah oh jamaah, alhamdulillah"', '552907756ea8344b188b4567.png', 'maulana@mail.com');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `anak`
---
-ALTER TABLE `anak`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `article`
---
-ALTER TABLE `article`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `artikel_gallery`
---
-ALTER TABLE `artikel_gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `business`
---
-ALTER TABLE `business`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `business_gallery`
---
-ALTER TABLE `business_gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dauroh`
---
-ALTER TABLE `dauroh`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dauroh_gallery`
---
-ALTER TABLE `dauroh_gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `event_list`
---
-ALTER TABLE `event_list`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gallery`
---
-ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gallery_anak`
---
-ALTER TABLE `gallery_anak`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gallery_progres`
---
-ALTER TABLE `gallery_progres`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `kelamin`
---
-ALTER TABLE `kelamin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `komentar`
---
-ALTER TABLE `komentar`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `negara`
---
-ALTER TABLE `negara`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_detail`
---
-ALTER TABLE `order_detail`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_master`
---
-ALTER TABLE `order_master`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pendamping`
---
-ALTER TABLE `pendamping`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `penerbangan`
---
-ALTER TABLE `penerbangan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `progres`
---
-ALTER TABLE `progres`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `region`
---
-ALTER TABLE `region`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rekomendasi`
---
-ALTER TABLE `rekomendasi`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rekomendasi_gallery`
---
-ALTER TABLE `rekomendasi_gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `request_saldo`
---
-ALTER TABLE `request_saldo`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `status_order`
---
-ALTER TABLE `status_order`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `status_progres`
---
-ALTER TABLE `status_progres`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `testimoni`
---
-ALTER TABLE `testimoni`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tipe_pembayaran`
---
-ALTER TABLE `tipe_pembayaran`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `travel`
---
-ALTER TABLE `travel`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `slug` (`title_slug`);
-
---
--- Indexes for table `travel_gallery`
---
-ALTER TABLE `travel_gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `travel_kategori`
---
-ALTER TABLE `travel_kategori`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `travel_organizer`
---
-ALTER TABLE `travel_organizer`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `umroh`
---
-ALTER TABLE `umroh`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `umroh_gallery`
---
-ALTER TABLE `umroh_gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_detail`
---
-ALTER TABLE `user_detail`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_ref`
---
-ALTER TABLE `user_ref`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ustad`
---
-ALTER TABLE `ustad`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `anak`
---
-ALTER TABLE `anak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
---
--- AUTO_INCREMENT for table `article`
---
-ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `artikel_gallery`
---
-ALTER TABLE `artikel_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `business`
---
-ALTER TABLE `business`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `business_gallery`
---
-ALTER TABLE `business_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `dauroh`
---
-ALTER TABLE `dauroh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `dauroh_gallery`
---
-ALTER TABLE `dauroh_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `event_list`
---
-ALTER TABLE `event_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `feedback`
---
-ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
---
--- AUTO_INCREMENT for table `gallery`
---
-ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `gallery_anak`
---
-ALTER TABLE `gallery_anak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `gallery_progres`
---
-ALTER TABLE `gallery_progres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `kelamin`
---
-ALTER TABLE `kelamin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `komentar`
---
-ALTER TABLE `komentar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
---
--- AUTO_INCREMENT for table `negara`
---
-ALTER TABLE `negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `order_detail`
---
-ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
---
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `pendamping`
---
-ALTER TABLE `pendamping`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `penerbangan`
---
-ALTER TABLE `penerbangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `progres`
---
-ALTER TABLE `progres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
---
--- AUTO_INCREMENT for table `region`
---
-ALTER TABLE `region`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `rekomendasi`
---
-ALTER TABLE `rekomendasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `rekomendasi_gallery`
---
-ALTER TABLE `rekomendasi_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `request_saldo`
---
-ALTER TABLE `request_saldo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `status_order`
---
-ALTER TABLE `status_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `status_progres`
---
-ALTER TABLE `status_progres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `testimoni`
---
-ALTER TABLE `testimoni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tipe_pembayaran`
---
-ALTER TABLE `tipe_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `travel`
---
-ALTER TABLE `travel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `travel_gallery`
---
-ALTER TABLE `travel_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `travel_kategori`
---
-ALTER TABLE `travel_kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `travel_organizer`
---
-ALTER TABLE `travel_organizer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `umroh`
---
-ALTER TABLE `umroh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `umroh_gallery`
---
-ALTER TABLE `umroh_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
---
--- AUTO_INCREMENT for table `user_detail`
---
-ALTER TABLE `user_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `user_ref`
---
-ALTER TABLE `user_ref`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `ustad`
---
-ALTER TABLE `ustad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
