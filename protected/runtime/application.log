@@ -10739,3 +10739,57 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/travel/transaksi/order/1?kategori=
 ---
+2016/10/06 23:09:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/10/06 23:09:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/10/07 00:47:45 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/10/07 00:47:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/10/07 00:47:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---
+2016/10/07 00:49:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "image/pointer.png". in /opt/lampp/htdocs/travel/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel/framework/web/CWebApplication.php(141): CWebApplication->runController('image/pointer.p...')
+#1 /opt/lampp/htdocs/travel/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel/image/pointer.png
+HTTP_REFERER=http://localhost/travel/css/style.css
+---

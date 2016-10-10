@@ -2,145 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c22fda9-5f9c-4f09-9c76-100d1aca3641" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/detail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/business/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/businessgallery/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/detail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/dauroh/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/kategori/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/layouts/column1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/layouts/column2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/layouts/main.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/layouts_jalanhalal/column1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/layouts_jalanhalal/column2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/layouts_jalanhalal/main.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/negara/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/organizer/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/pendamping/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/penerbangan/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/databusiness.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/datadauroh.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/datatravel.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/product/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/region/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/site/contact.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/site/error.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/site/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/site/index_old.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/site/login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/site/pages/about.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/_view_old.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/detail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travel/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/travelgallery/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/user/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views_ori/ustad/view.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/application.log" afterPath="$PROJECT_DIR$/protected/runtime/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/business/detail.php" afterPath="$PROJECT_DIR$/protected/views/business/detail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/dauroh/detail.php" afterPath="$PROJECT_DIR$/protected/views/dauroh/detail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts_jalanhalal/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts_jalanhalal/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/travel/detail.php" afterPath="$PROJECT_DIR$/protected/views/travel/detail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/umroh/detail.php" afterPath="$PROJECT_DIR$/protected/views/umroh/detail.php" />
     </list>
     <ignored path="travel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -159,21 +22,17 @@
     <favorites_list name="travel" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="TransaksiController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/TransaksiController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="175" column="47" selection-start-line="175" selection-start-column="47" selection-end-line="175" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/protected/controllers/TransaksiController.php" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -183,10 +42,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="24" />
-    <option name="width" value="1368" />
-    <option name="height" value="745" />
+    <option name="width" value="1366" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -213,8 +71,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -267,6 +123,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,31 +141,32 @@
       <option name="presentableId" value="Default" />
       <updated>1475778318615</updated>
       <workItem from="1475778320287" duration="650000" />
+      <workItem from="1475845315390" duration="34000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="650000" />
+    <option name="totallyTimeSpent" value="684000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="24" width="1368" height="745" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
