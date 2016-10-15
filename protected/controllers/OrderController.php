@@ -1,12 +1,12 @@
 <?php
 
-class UserController extends Controller
+class OrderController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	//public $layout='//layouts/column2';
+	// public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -26,28 +26,18 @@ class UserController extends Controller
 	 */
 	public function accessRules()
 	{
-		$level = User::model()->findAllByAttributes(array('role'=>1));
-		foreach ($level as $key => $value) {
-			$user_name[] = $value->username;
-		}
-
-		$level2 = User::model()->findAllByAttributes(array('role'=>2));
-		foreach ($level2 as $key => $value2) {
-			$user_name2[] = $value2->username;
-		}
-		
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','register'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('dashboard', 'pesanan', 'konfirmasi', 'faq', 'edit_profil'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','create', 'update'),
-				'users'=>$user_name,
+				'actions'=>array('admin','delete', 'detail', 'waiting', 'dp_lunas', 'waiting_pelunasan_dp', 'done'),
+				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -72,52 +62,19 @@ class UserController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new User;
+		$model=new OrderMaster;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['User']))
+		if(isset($_POST['OrderMaster']))
 		{
-			$model->attributes=$_POST['User'];
+			$model->attributes=$_POST['OrderMaster'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
-
-	public function actionRegister()
-	{
-		$model=new User;
-		if(isset($_POST['User']))
-		{
-			$uploadedFile=CUploadedFile::getInstance($model,'image');
-			$model->username = $_POST['User']['username'];
-			$model->nama_lengkap = $_POST['User']['nama_lengkap'];
-			$model->password = $_POST['User']['password'];
-			$model->email = $_POST['User']['email'];
-			$model->telephone = $_POST['User']['telephone'];
-			$model->image = $_POST['User']['image'];
-			
-			$model->role=$_POST['User']['role'];	
-			if($uploadedFile->name != '') {
-				$model->image = CUploadedFile::getInstance($model, 'image'); //UPLOAD FILE DAN SAVE
-                $model->image->saveAs(Yii::app()->basePath.'/../images/user/'.$model->image); // UNTUK MOVE FILE
-		
-            }
-							
-			if($model->save()) {
-				
-                Yii::app()->user->setFlash('berhasil','Selamat! akun anda berhasil dibuat');
-                $this->redirect(array('user/after_register'));
-			}
-		}
-
-		$this->render('register',array(
 			'model'=>$model,
 		));
 	}
@@ -134,10 +91,9 @@ class UserController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['User']))
+		if(isset($_POST['OrderMaster']))
 		{
-			$model->attributes=$_POST['User'];
-			$uploadedFile=CUploadedFile::getInstance($model,'image');
+			$model->attributes=$_POST['OrderMaster'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -166,7 +122,7 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('User');
+		$dataProvider=new CActiveDataProvider('OrderMaster');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -177,121 +133,163 @@ class UserController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new User('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['User']))
-			$model->attributes=$_GET['User'];
+		$criteria = new CDbCriteria(array(
+			'order'=>'id DESC'
+		));			// Tampilkan data order berdasarkan id_user pengguna
+
+		$count = OrderMaster::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+
+		$model = OrderMaster::model()->findAll($criteria);
 
 		$this->render('admin',array(
 			'model'=>$model,
-		));
-	}
-
-	public function actionDashboard() {
-		$user_id = Yii::app()->user->id;
-		$model = $this->loadModel($user_id);
-		$this->render('dashboard', array(
-			'model'=>$model,
-		));
-	}
-
-	public function actionPesanan() {
-		$user_id = Yii::app()->user->id;
-
-		$criteria = new CDbCriteria(array(
-			'order'=>'id DESC'
-		));
-
-		$criteria->compare('id_user', $user_id, true);			// Tampilkan data order berdasarkan id_user pengguna
-
-		$count = OrderMaster::model()->count($criteria);
-		$pages = new CPagination($count);
-		$pages->pageSize = 2;
-		$pages->applyLimit($criteria);
-
-		$model = OrderMaster::model()->findAll($criteria);
-		$this->render('pesanan', array(
-			'model'=>$model,
 			'pages'=>$pages,
 		));
 	}
 
-	public function actionKonfirmasi() {
-		$user_id = Yii::app()->user->id;
-
-		$criteria = new CDbCriteria(array(
-			'order'=>'id DESC'
-		));
-
-		$criteria->compare('id_user', $user_id, true);			// Tampilkan data order berdasarkan id_user pengguna
-
-		$count = OrderMaster::model()->count($criteria);
-		$pages = new CPagination($count);
-		$pages->pageSize = 2;
-		$pages->applyLimit($criteria);
-
-		$model = OrderMaster::model()->findAll($criteria);
-		$this->render('konfirmasi', array(
-			'model'=>$model,
-			'pages'=>$pages,
-		));
-	}
-
-	public function actionFaq() {
-		$user_id = Yii::app()->user->id;
-		$model = $this->loadModel($user_id);
-		$this->render('faq', array(
-			'model'=>$model,
-		));
-	}
-
-	public function actionEdit_profil()
+	public function actionWaiting()
 	{
-		$user_id = Yii::app()->user->id;
-		$model=$this->loadModel($user_id);
-		$gambar_lama = $model->image;
+		$criteria = new CDbCriteria(array(
+			'order'=>'id DESC'
+		));
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		//where status_payment=1 (DP) OR status_payment=2 (Cash)
+		$criteria->addInCondition('status_payment', array(1, 2), true);
+		//where status_konfirmasi=0, konfirmasi belum diverifikasi
+		$criteria->compare('status_konfirmasi', 0, true);
 
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			$uploadedFile=CUploadedFile::getInstance($model,'image');
-			
-			if($uploadedFile != null) {
-				@unlink(Yii::app()->basePath.'/../images/user/'.$gambar_lama);
-				$model->image = CUploadedFile::getInstance($model, 'image'); //UPLOAD FILE DAN SAVE
-                $model->image->saveAs(Yii::app()->basePath.'/../images/user/'.$model->image); // UNTUK MOVE FILE
-            }
-			else {
-				$model->image=$gambar_lama;
-			}
+		$count = OrderMaster::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
 
-			if($model->save()) {
-				//Updating user sessionname
-				if (strcmp(Yii::app()->user->name,$model->username) != 0) {
-				      Yii::app()->user->setName($model->username);
-				 }
-				$this->redirect(array('dashboard'));
-			}
+		$model = OrderMaster::model()->findAll($criteria);
+
+		$this->render('waiting',array(
+			'model'=>$model,
+			'pages'=>$pages,
+		));
+	}
+
+	public function actionDp_lunas()
+	{
+		$criteria = new CDbCriteria(array(
+			'order'=>'id DESC'
+		));
+
+		//id_type_payment=1, tipe pembayaran DP
+		$criteria->compare('id_type_payment', 1, true);
+		//status_payment=1, bayar dp
+		$criteria->compare('status_payment', 1, true);
+		//status_konfirmasi=1, konfirmasi DP telah diverifikasi
+		$criteria->compare('status_konfirmasi', 1, true);
+
+		$count = OrderMaster::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+
+		$model = OrderMaster::model()->findAll($criteria);
+
+		$this->render('dp_lunas',array(
+			'model'=>$model,
+			'pages'=>$pages,
+		));
+	}
+
+	public function actionWaiting_pelunasan_dp() {
+		$criteria = new CDbCriteria(array(
+			'order'=>'id DESC'
+		));
+
+		//id_type_payment=1, tipe pembayaran DP
+		$criteria->compare('id_type_payment', 1, true);
+		//status_payment=2, bayar cash (pelunasan dp)
+		$criteria->compare('status_payment', 2, true);
+		//status_konfirmasi=1, konfirmasi telah diverifikasi
+		$criteria->compare('status_konfirmasi', 1, true);
+
+		$count = OrderMaster::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+
+		$model = OrderMaster::model()->findAll($criteria);
+
+		$this->render('waiting_pelunasan_dp',array(
+			'model'=>$model,
+			'pages'=>$pages,
+		));
+	}
+
+	public function actionDone()
+	{
+		$criteria = new CDbCriteria(array(
+			'order'=>'id DESC'
+		));
+
+		//where status_konfirmasi=2, Lunas
+		$criteria->compare('status_konfirmasi', 2, true);
+
+		$count = OrderMaster::model()->count($criteria);
+		$pages = new CPagination($count);
+		$pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+
+		$model = OrderMaster::model()->findAll($criteria);
+
+		$this->render('done',array(
+			'model'=>$model,
+			'pages'=>$pages,
+		));
+	}
+
+	public function actionDetail($id)
+	{
+		$data = $this->loadModel($id);
+		$id_travel = $data->id_travel;
+		$kategori = $data->id_kategori_travel;
+		$bukti_pembayaran = Transaksi::model()->findAllByAttributes(array('id_om'=>$data->id));
+
+		if ($kategori == 1) {
+			$jenis = 'umroh';
+			$produk = Umroh::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 2) {
+			$jenis = 'dauroh';
+			$produk = Dauroh::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 3) {
+			$jenis = 'business';
+			$produk = Business::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 4) {
+			$jenis = 'travel';
+			$produk = Travel::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
 		}
 
-		$this->render('edit_profil',array(
-			'model'=>$model,
-		));
+		if (isset($_POST['OrderMaster'])) {
+			$data->attributes=$_POST['OrderMaster'];
+			var_dump($_POST['OrderMaster']);
+			$data->save();
+		}
+
+		$this->render('detail',array('data'=>$data, 'jenis'=>$jenis, 'produk'=>$produk, 'bukti_pembayaran'=>$bukti_pembayaran));
 	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return User the loaded model
+	 * @return OrderMaster the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=User::model()->findByPk($id);
+		$model=OrderMaster::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -299,11 +297,11 @@ class UserController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param User $model the model to be validated
+	 * @param OrderMaster $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='order-master-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

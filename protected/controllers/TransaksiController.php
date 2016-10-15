@@ -6,7 +6,7 @@ class TransaksiController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts_jalanhalal/column2';
+	// public $layout='//layouts_jalanhalal/column2';
 
 	/**
 	 * @return array action filters
@@ -276,7 +276,13 @@ class TransaksiController extends Controller
 
 			if ($model->save()) {
 				//Update order_master
-				$master->status_payment = 1;
+				if ($master->id_type_payment == 1) {
+					$master->status_payment = 1;
+				}
+				else if ($master->id_type_payment == 2) {
+					$master->status_payment = 2;
+				}
+
 				$master->last_update = $model->updated;
 				$master->update();
 
@@ -288,6 +294,65 @@ class TransaksiController extends Controller
 		}
 
 		$this->render('confirm', array('model'=>$model));
+	}
+
+	public function actionPelunasan($id)
+	{	
+		$data = $this->loadModel($id);
+		$id_travel = $data->id_travel;
+		$kategori = $data->id_kategori_travel;
+
+		if ($kategori == 1) {
+			$jenis = 'umroh';
+			$produk = Umroh::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 2) {
+			$jenis = 'dauroh';
+			$produk = Dauroh::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 3) {
+			$jenis = 'business';
+			$produk = Business::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 4) {
+			$jenis = 'travel';
+			$produk = Travel::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		$this->render('pelunasan',array('data'=>$data, 'jenis'=>$jenis, 'produk'=>$produk));
+	}
+
+	public function actionConfirmpelunasan($id)
+	{
+		$master=$this->loadModel($id); // Temukan id order_master, jika data order_master tidak ada redirect 404
+		$model=new Transaksi;
+		$model->scenario='create';
+
+		if (isset($_POST['Transaksi'])) {
+			$model->attributes=$_POST['Transaksi'];
+			$uploadedFile=CUploadedFile::getInstance($model,'gambar');
+			$model->gambar=$uploadedFile;
+			$model->id_om=$id;
+
+			date_default_timezone_set('Asia/Jakarta');
+    		$model->updated=date("Y-m-d H:i:s");
+
+			if ($model->save()) {
+				//Update order_master
+				if ($master->type_payment == 1) {
+					$master->status_payment = 2;
+				}
+				
+				$master->last_update = $model->updated;
+				$master->update();
+
+				$uploadedFile->saveAs(Yii::app()->basePath.'/../images/bukti/'.$uploadedFile);
+            
+				Yii::app()->user->setFlash('berhasil','Konfirmasi pelunasan telah terkirim');
+				$this->redirect(array('finish'));
+			}
+		}
+
+		$this->render('confirmpelunasan', array('model'=>$model));
 	}
 
 	/**

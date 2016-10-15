@@ -6,7 +6,6 @@ class PendampingController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -26,18 +25,28 @@ class PendampingController extends Controller
 	 */
 	public function accessRules()
 	{
+		$level = User::model()->findAllByAttributes(array('role'=>1));
+		foreach ($level as $key => $value) {
+			$user_name[] = $value->username;
+		}
+
+		$level2 = User::model()->findAllByAttributes(array('role'=>2));
+		foreach ($level2 as $key => $value2) {
+			$user_name2[] = $value2->username;
+		}
+
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'users'=>$user_name,
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'users'=>$user_name,
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'users'=>$user_name,
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

@@ -36,7 +36,7 @@ class OrderMaster extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_user, id_user_ref, id_travel, id_kategori_travel, id_type_payment, payment, payment_code, verifikasi_code, status_payment', 'required'),
-			array('id_user, id_user_ref, id_travel, id_kategori_travel, id_type_payment, payment, status_payment', 'numerical', 'integerOnly'=>true),
+			array('id_user, id_user_ref, id_travel, id_kategori_travel, id_type_payment, payment, status_payment, status_konfirmasi', 'numerical', 'integerOnly'=>true),
 			array('payment_code, verifikasi_code', 'length', 'max'=>255),
 			array('last_update', 'safe'),
 			// The following rule is used by search().
@@ -54,8 +54,9 @@ class OrderMaster extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user_ref' => array(self::BELONGS_TO, 'UserRef', 'id_user_ref'),
-			'payment' => array(self::BELONGS_TO, 'Payment', 'id_payment'),
+			'type_payment' => array(self::BELONGS_TO, 'Payment', 'id_type_payment'),
 			'user' => array(self::BELONGS_TO, 'User', 'id_user'),
+			'kategori_travel' => array(self::BELONGS_TO, 'TravelKategori', 'id_kategori_travel'),
 		);
 	}
 
@@ -75,6 +76,7 @@ class OrderMaster extends CActiveRecord
 			'payment_code' => 'Payment Code',
 			'verifikasi_code' => 'Verifikasi Code',
 			'status_payment' => 'Status Payment',
+			'status_konfirmasi' => 'Status Konfirmasi',
 			'created_date' => 'Created Date',
 			'last_update' => 'Last Update',
 		);
@@ -125,5 +127,50 @@ class OrderMaster extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function get_travel($kategori, $id_travel) {
+		if ($kategori == 1) {
+			$produk = Umroh::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 2) {
+			$produk = Dauroh::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 3) {
+			$produk = Business::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+		else if ($kategori == 4) {
+			$produk = Travel::model()->findByAttributes(array('id'=>$id_travel,'id_kategori'=>$kategori));
+		}
+
+		return $produk;
+	}
+
+	public function get_status_pembayaran($id) {
+		if ($id == 0) {
+			$status = 'Belum Bayar';
+		}
+		else if ($id == 1) {
+			$status = 'DP';
+		}
+		else if ($id == 2) {
+			$status = 'Lunas';
+		}
+
+		return $status;
+	}
+
+	public function get_status_konfirmasi($id) {
+		if ($id == 0) {
+			$status = 'Belum dikonfirmasi';
+		}
+		else if ($id == 1) {
+			$status = 'Konfirmasi DP telah diverifikasi, menunggu pelunasan';
+		}
+		else if ($id == 2) {
+			$status = 'Pembayaran Lunas & konfirmasi telah diverifikasi';
+		}
+
+		return $status;
 	}
 }

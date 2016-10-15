@@ -41,7 +41,7 @@
 						   
 						    <?php } else{ ?>
 						    	<a href="<?php echo Yii::app()->request->baseUrl ?>/site/logout" class="btn-masuk">logout</a>
-						    	<a href="signup.html" class="btn-daftar"><?php echo Yii::app()->user->name ?></a> 
+						    	<a href="<?php echo Yii::app()->request->baseUrl ?>/user/dashboard" class="btn-daftar"><?php echo Yii::app()->user->name ?></a> 
 			  					<div style="float: right; margin-top: 7px; margin-right: 10px;"><a href="">English</a> | <a href="">Indonesia</a></div>
 
 						    <?php } ?>
@@ -50,7 +50,7 @@
 						   
 						    <?php } else{ ?>
 						    	<a href="<?php echo Yii::app()->request->baseUrl ?>/site/logout" class="btn-masuk">logout</a>
-						    	<a href="signup.html" class="btn-daftar"><?php echo Yii::app()->user->name ?></a> 
+						    	<a href="<?php echo Yii::app()->request->baseUrl ?>/user/dashboard" class="btn-daftar"><?php echo Yii::app()->user->name ?></a> 
 			  					<div style="float: right; margin-top: 7px; margin-right: 10px;"><a href="">English</a> | <a href="">Indonesia</a></div>
 
 						    <?php } ?>
